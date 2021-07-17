@@ -1,0 +1,78 @@
+[
+  {
+    "type": "header",
+    "version": "5.0.2",
+    "comment": "Export to JSON plugin for PHPMyAdmin"
+  },
+  {
+    "type": "database",
+    "name": "howlong"
+  },
+  {
+    "type": "table",
+    "name": "number_table",
+    "database": "howlong",
+    "data": [
+      {
+        "ID": "1",
+        "number": "1",
+        "strength": "-2",
+        "kind": "odd"
+      },
+      {
+        "ID": "2",
+        "number": "2",
+        "strength": "2",
+        "kind": "eve"
+      },
+      {
+        "ID": "3",
+        "number": "3",
+        "strength": "-1",
+        "kind": "odd"
+      },
+      {
+        "ID": "4",
+        "number": "4",
+        "strength": "1",
+        "kind": "eve"
+      },
+      {
+        "ID": "5",
+        "number": "5",
+        "strength": "0",
+        "kind": "odd"
+      },
+      {
+        "ID": "6",
+        "number": "6",
+        "strength": "-2",
+        "kind": "eve"
+      },
+      {
+        "ID": "7",
+        "number": "7",
+        "strength": "2",
+        "kind": "odd"
+      },
+      {
+        "ID": "8",
+        "number": "8",
+        "strength": "-1",
+        "kind": "eve"
+      },
+      {
+        "ID": "9",
+        "number": "9",
+        "strength": "1",
+        "kind": "odd"
+      },
+      {
+        "ID": "10",
+        "number": "0",
+        "strength": "0",
+        "kind": "eve"
+      }
+    ]
+  }
+]

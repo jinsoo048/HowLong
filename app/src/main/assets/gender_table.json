@@ -1,0 +1,28 @@
+[
+  {
+    "type": "header",
+    "version": "5.0.2",
+    "comment": "Export to JSON plugin for PHPMyAdmin"
+  },
+  {
+    "type": "database",
+    "name": "howlong"
+  },
+  {
+    "type": "table",
+    "name": "gender_table",
+    "database": "howlong",
+    "data": [
+      {
+        "ID": "1",
+        "gender": "male",
+        "strength": "1"
+      },
+      {
+        "ID": "2",
+        "gender": "female",
+        "strength": "-1"
+      }
+    ]
+  }
+]

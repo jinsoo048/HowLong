@@ -1,0 +1,246 @@
+[
+  {
+    "type": "header",
+    "version": "5.0.2",
+    "comment": "Export to JSON plugin for PHPMyAdmin"
+  },
+  {
+    "type": "database",
+    "name": "howlong"
+  },
+  {
+    "type": "table",
+    "name": "character_table",
+    "database": "howlong",
+    "data": [
+      {
+        "ID": "1",
+        "character": "ㄱ",
+        "strength": "-1",
+        "kind": "con"
+      },
+      {
+        "ID": "2",
+        "character": "ㄲ",
+        "strength": "-1",
+        "kind": "con"
+      },
+      {
+        "ID": "3",
+        "character": "ㅋ",
+        "strength": "-1",
+        "kind": "con"
+      },
+      {
+        "ID": "4",
+        "character": "ㄴ",
+        "strength": "2",
+        "kind": "con"
+      },
+      {
+        "ID": "5",
+        "character": "ㄷ",
+        "strength": "2",
+        "kind": "con"
+      },
+      {
+        "ID": "6",
+        "character": "ㄹ",
+        "strength": "2",
+        "kind": "con"
+      },
+      {
+        "ID": "7",
+        "character": "ㄸ",
+        "strength": "2",
+        "kind": "con"
+      },
+      {
+        "ID": "8",
+        "character": "ㅌ",
+        "strength": "2",
+        "kind": "con"
+      },
+      {
+        "ID": "9",
+        "character": "ㅁ",
+        "strength": "0",
+        "kind": "con"
+      },
+      {
+        "ID": "10",
+        "character": "ㅂ",
+        "strength": "0",
+        "kind": "con"
+      },
+      {
+        "ID": "11",
+        "character": "ㅍ",
+        "strength": "0",
+        "kind": "con"
+      },
+      {
+        "ID": "12",
+        "character": "ㅃ",
+        "strength": "0",
+        "kind": "con"
+      },
+      {
+        "ID": "13",
+        "character": "ㅅ",
+        "strength": "1",
+        "kind": "con"
+      },
+      {
+        "ID": "14",
+        "character": "ㅈ",
+        "strength": "1",
+        "kind": "con"
+      },
+      {
+        "ID": "15",
+        "character": "ㅊ",
+        "strength": "1",
+        "kind": "con"
+      },
+      {
+        "ID": "16",
+        "character": "ㅆ",
+        "strength": "1",
+        "kind": "con"
+      },
+      {
+        "ID": "17",
+        "character": "ㅉ",
+        "strength": "1",
+        "kind": "con"
+      },
+      {
+        "ID": "18",
+        "character": "ㅇ",
+        "strength": "-2",
+        "kind": "con"
+      },
+      {
+        "ID": "19",
+        "character": "ㅎ",
+        "strength": "-2",
+        "kind": "con"
+      },
+      {
+        "ID": "20",
+        "character": "ㅓ",
+        "strength": "-1",
+        "kind": "vow"
+      },
+      {
+        "ID": "21",
+        "character": "ㅕ",
+        "strength": "-1",
+        "kind": "vow"
+      },
+      {
+        "ID": "22",
+        "character": "ㅜ",
+        "strength": "-1",
+        "kind": "vow"
+      },
+      {
+        "ID": "23",
+        "character": "ㅠ",
+        "strength": "-1",
+        "kind": "vow"
+      },
+      {
+        "ID": "24",
+        "character": "ㅡ",
+        "strength": "-1",
+        "kind": "vow"
+      },
+      {
+        "ID": "25",
+        "character": "ㅔ",
+        "strength": "-1",
+        "kind": "vow"
+      },
+      {
+        "ID": "26",
+        "character": "ㅖ",
+        "strength": "-1",
+        "kind": "vow"
+      },
+      {
+        "ID": "27",
+        "character": "ㅟ",
+        "strength": "-1",
+        "kind": "vow"
+      },
+      {
+        "ID": "28",
+        "character": "ㅞ",
+        "strength": "-1",
+        "kind": "vow"
+      },
+      {
+        "ID": "29",
+        "character": "ㅢ",
+        "strength": "-1",
+        "kind": "vow"
+      },
+      {
+        "ID": "30",
+        "character": "ㅏ",
+        "strength": "1",
+        "kind": "vow"
+      },
+      {
+        "ID": "31",
+        "character": "ㅑ",
+        "strength": "1",
+        "kind": "vow"
+      },
+      {
+        "ID": "32",
+        "character": "ㅗ",
+        "strength": "1",
+        "kind": "vow"
+      },
+      {
+        "ID": "33",
+        "character": "ㅛ",
+        "strength": "1",
+        "kind": "vow"
+      },
+      {
+        "ID": "34",
+        "character": "ㅐ",
+        "strength": "1",
+        "kind": "vow"
+      },
+      {
+        "ID": "35",
+        "character": "ㅒ",
+        "strength": "1",
+        "kind": "vow"
+      },
+      {
+        "ID": "36",
+        "character": "ㅚ",
+        "strength": "1",
+        "kind": "vow"
+      },
+      {
+        "ID": "37",
+        "character": "ㅙ",
+        "strength": "1",
+        "kind": "vow"
+      },
+      {
+        "ID": "38",
+        "character": "ㅣ",
+        "strength": "0",
+        "kind": "vow"
+      }
+    ]
+  }
+]

@@ -1,0 +1,170 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'dagger.hilt.android.plugin'
+apply plugin: 'androidx.navigation.safeargs.kotlin'
+apply plugin: 'com.google.gms.google-services'
+
+android {
+
+    packagingOptions {
+        exclude 'META-INF/atomicfu.kotlin_module'
+    }
+
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+
+    compileSdkVersion rootProject.compileSdkVersion
+
+    buildFeatures {
+        dataBinding = true
+        viewBinding = true
+    }
+    defaultConfig {
+        applicationId "com.jiban.howlong"
+        minSdkVersion rootProject.minSdkVersion
+        targetSdkVersion rootProject.targetSdkVersion
+        versionCode 1
+        versionName "0.1.6"
+        vectorDrawables.useSupportLibrary true
+
+        // Consult the README on instructions for setting up Unsplash API key
+        buildConfigField("String", "UNSPLASH_ACCESS_KEY", "\"" + getUnsplashAccess() + "\"")
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments["dagger.hilt.disableModulesHaveInstallInCheck"] = "true"
+            }
+        }
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        // work-runtime-ktx 2.1.0 and above now requires Java 8
+        jvmTarget = "1.8"
+
+        // Enable Coroutines and Flow APIs
+        freeCompilerArgs += "-Xopt-in=kotlinx.coroutines.ExperimentalCoroutinesApi"
+        freeCompilerArgs += "-Xopt-in=kotlinx.coroutines.FlowPreview"
+    }
+    packagingOptions {
+        // Multiple dependency bring these files in. Exclude them to enable
+        // our test APK to build (has no effect on our AARs)
+        excludes += "/META-INF/AL2.0"
+        excludes += "/META-INF/LGPL2.1"
+    }
+}
+
+dependencies {
+
+    //val activity_version = "1.2.3"
+
+    // Java language implementation
+    implementation("androidx.activity:activity-ktx:$activity_version")
+    // Kotlin
+    implementation("androidx.activity:activity-ktx:$activity_version")
+
+
+    implementation 'androidx.fragment:fragment-ktx:1.3.5'
+    kapt "androidx.room:room-compiler:$rootProject.roomVersion"
+    kapt "com.github.bumptech.glide:compiler:$rootProject.glideVersion"
+    kapt "com.google.dagger:hilt-android-compiler:$rootProject.hiltVersion"
+    implementation "androidx.appcompat:appcompat:$rootProject.appCompatVersion"
+    implementation "androidx.constraintlayout:constraintlayout:$rootProject.constraintLayoutVersion"
+    implementation "androidx.core:core-ktx:$rootProject.ktxVersion"
+    implementation "androidx.fragment:fragment-ktx:$rootProject.fragmentVersion"
+    implementation "androidx.lifecycle:lifecycle-extensions:$rootProject.lifecycleVersion"
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:$rootProject.lifecycleVersion"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$rootProject.lifecycleVersion"
+    implementation "androidx.navigation:navigation-fragment-ktx:$rootProject.navigationVersion"
+    implementation "androidx.navigation:navigation-ui-ktx:$rootProject.navigationVersion"
+    implementation "androidx.paging:paging-runtime-ktx:$rootProject.pagingVersion"
+    implementation "androidx.recyclerview:recyclerview:$rootProject.recyclerViewVersion"
+    implementation "androidx.room:room-runtime:$rootProject.roomVersion"
+    implementation "androidx.room:room-ktx:$rootProject.roomVersion"
+    implementation "androidx.viewpager2:viewpager2:$rootProject.viewPagerVersion"
+    implementation "androidx.work:work-runtime-ktx:$rootProject.workVersion"
+    implementation "com.github.bumptech.glide:glide:$rootProject.glideVersion"
+    implementation "com.google.android.material:material:$rootProject.materialVersion"
+    implementation "com.google.code.gson:gson:$rootProject.gsonVersion"
+    implementation "com.squareup.okhttp3:logging-interceptor:$rootProject.okhttpLoggingVersion"
+    implementation "com.squareup.retrofit2:converter-gson:$rootProject.retrofitVersion"
+    implementation "com.squareup.retrofit2:retrofit:$rootProject.retrofitVersion"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$rootProject.coroutinesVersion"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$rootProject.coroutinesVersion"
+    implementation "com.google.dagger:hilt-android:$rootProject.hiltVersion"
+
+    // Testing dependencies
+    kaptAndroidTest "com.google.dagger:hilt-android-compiler:$rootProject.hiltVersion"
+    androidTestImplementation "androidx.arch.core:core-testing:$rootProject.coreTestingVersion"
+    androidTestImplementation "androidx.test.espresso:espresso-contrib:$rootProject.espressoVersion"
+    androidTestImplementation "androidx.test.espresso:espresso-core:$rootProject.espressoVersion"
+    androidTestImplementation "androidx.test.espresso:espresso-intents:$rootProject.espressoVersion"
+    androidTestImplementation "androidx.test.ext:junit:$rootProject.testExtJunit"
+    androidTestImplementation "androidx.test.uiautomator:uiautomator:$rootProject.uiAutomatorVersion"
+    androidTestImplementation "androidx.work:work-testing:$rootProject.workVersion"
+    androidTestImplementation "com.google.truth:truth:$rootProject.truthVersion"
+    androidTestImplementation "com.google.dagger:hilt-android-testing:$rootProject.hiltVersion"
+    androidTestImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:$rootProject.coroutinesVersion"
+    testImplementation "junit:junit:$rootProject.junitVersion"
+
+    //val fragment_version = "1.3.5"
+
+    // Kotlin
+    implementation("androidx.fragment:fragment-ktx:1.3.5")
+
+    implementation "androidx.appcompat:appcompat:$rootProject.appCompatVersion"
+    implementation "androidx.activity:activity-ktx:$rootProject.activityVersion"
+
+    // Dependencies for working with Architecture components
+    // You'll probably have to update the version numbers in build.gradle (Project)
+
+    // Room components
+    implementation "androidx.room:room-ktx:$rootProject.roomVersion"
+    kapt "androidx.room:room-compiler:$rootProject.roomVersion"
+    androidTestImplementation "androidx.room:room-testing:$rootProject.roomVersion"
+
+    // Lifecycle components
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$rootProject.lifecycleVersion"
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:$rootProject.lifecycleVersion"
+    implementation "androidx.lifecycle:lifecycle-common-java8:$rootProject.lifecycleVersion"
+
+    // Kotlin components
+//    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    api "org.jetbrains.kotlinx:kotlinx-coroutines-core:$rootProject.coroutines"
+    api "org.jetbrains.kotlinx:kotlinx-coroutines-android:$rootProject.coroutines"
+
+    // UI
+    implementation "androidx.constraintlayout:constraintlayout:$rootProject.constraintLayoutVersion"
+    implementation "com.google.android.material:material:$rootProject.materialVersion"
+
+    // Testing
+    testImplementation "junit:junit:$rootProject.junitVersion"
+    androidTestImplementation "androidx.arch.core:core-testing:$rootProject.coreTestingVersion"
+    androidTestImplementation ("androidx.test.espresso:espresso-core:$rootProject.espressoVersion", {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    androidTestImplementation "androidx.test.ext:junit:$rootProject.androidxJunitVersion"
+
+    // Import the BoM for the Firebase platform
+    implementation platform('com.google.firebase:firebase-bom:28.2.1')
+    implementation 'com.google.firebase:firebase-auth'
+    implementation 'com.google.firebase:firebase-firestore-ktx'
+    implementation 'com.google.firebase:firebase-auth-ktx'
+    implementation 'com.google.firebase:firebase-auth:21.0.1'
+
+
+}
+
+def getUnsplashAccess() {
+    return project.findProperty("unsplash_access_key")
+}

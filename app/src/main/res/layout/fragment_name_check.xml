@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:clipToPadding="false"
+    android:paddingStart="@dimen/keyline_4"
+    android:paddingTop="@dimen/keyline_5"
+    android:paddingEnd="@dimen/keyline_4"
+    android:paddingBottom="@dimen/keyline_5">
+
+    <ImageView
+        android:id="@+id/jLogoIv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/jLogo"
+        android:src="@drawable/ic_j_m"
+        app:layout_constraintBottom_toTopOf="@+id/myNameTi"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/myNameTi"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/keyline_4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/jLogoIv">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/myNameTe"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/text_field_hint_text1" />
+
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/yourNameTi"
+        style="?attr/textInputStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/keyline_4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/myNameTi">
+
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/yourNameTe"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+
+            android:hint="@string/text_field_hint_text2" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/keyline_4"
+        android:text="@string/bottom_sheet_button_label"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/yourNameTi" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

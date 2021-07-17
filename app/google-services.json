@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "578223006749",
+    "project_id": "howlong-bc964",
+    "storage_bucket": "howlong-bc964.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:578223006749:android:377bf5242f9fce5f5852f4",
+        "android_client_info": {
+          "package_name": "com.jiban.howlong"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "578223006749-3njpe41iis5llnj88f6lhossus2s1rah.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCU1mqCBJxZ8yCaMaqWslH2NWZ6T2N4ybw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "578223006749-3njpe41iis5llnj88f6lhossus2s1rah.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

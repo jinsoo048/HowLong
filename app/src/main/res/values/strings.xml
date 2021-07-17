@@ -1,0 +1,275 @@
+<resources>
+    <string name="app_name">HowLong</string>
+    <string name="year">Year</string>
+    <string name="FirstName">FirstName</string>
+    <string name="LastName">LastName</string>
+    <string name="YearMenu">Year</string>
+    <string name="MonthMenu">Month</string>
+    <string name="DayMenu">Day</string>
+    <string name="TimeMenu">Time</string>
+    <string name="GenderMenu">Gender</string>
+    <string name="login">login</string>
+    <string name="register">register</string>
+    <string name="content_description_login">content_description_login</string>
+    <string name="content_description_register">content_description_register</string>
+    <string name="HowLong">How Long</string>
+
+    // from MaterialThemeBuilder
+    <string name="theme_name_hint">Theme name…</string>
+
+    <string name="lorem_ipsum">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</string>
+
+    <!--Main-->
+    <string name="tab_title_instructions">Instructions</string>
+    <string name="tab_title_components">Components</string>
+    <string name="tab_title_theme_summary">Theme summary</string>
+
+    <!--Instructions-->
+    <string name="instructions_how_to">Build your own custom Material Theme by remixing and styling these themeable components.\n\nModify the variables in your project\'s color.xml, type.xml and shape.xml files to see your custom styles cascade through Material Components for Android.</string>
+    <string name="instructions_how_to_title">How to use theme builder</string>
+    <string name="instructions_options_title">Theme builder options</string>
+    <string name="instructions_enable_dark_title">Enable dark theme</string>
+
+    <!--Component-->
+    <string name="text_headline_6">Headline 6</string>
+    <string name="text_body_2">Body 2</string>
+    <string name="text_button">Button</string>
+    <string name="text_overline">Overline</string>
+
+    <string name="button_label_title">Button</string>
+    <string name="button_left_button_label">Left</string>
+    <string name="button_center_button_label">Center</string>
+    <string name="button_right_button_label">Right</string>
+
+    <string name="fab_label_title">FAB</string>
+
+    <string name="card_label_title">Card</string>
+
+    <string name="chip_label_title">Chips</string>
+    <string name="chip_action_title">Action</string>
+    <string name="chip_filter_title">Filter</string>
+    <string name="chip_choice_title">Choice</string>
+    <string name="chip_entry_title">Entry</string>
+
+    <string name="top_app_bar_label_title">Top app bar</string>
+    <string name="app_bar_menu_share">Share</string>
+    <string name="app_bar_menu_search">Search</string>
+    <string name="app_bar_menu_bookmark">Bookmark</string>
+
+    <string name="drawer_label_title">Drawer</string>
+
+    <string name="text_field_label_title" description="Label text for a text field [CHAR LIMIT=50]">Text field</string>
+    <string name="text_field_hint_text">Name</string>
+
+    <string name="bottom_nav_label_title">Bottom navigation</string>
+    <string name="bottom_nav_favorites_title">Favorites</string>
+    <string name="bottom_nav_music_title">Music</string>
+    <string name="bottom_nav_places_title">Places</string>
+    <string name="bottom_nav_news_title">News</string>
+
+    <string name="switch_label_title">Switch</string>
+
+    <string name="radio_button_label_title">Radio button</string>
+
+    <string name="checkbox_label_title">Checkbox</string>
+
+    <string name="bottom_app_bar_label_title">Bottom app bar</string>
+
+    <string name="tabs_label_title">Tabs</string>
+
+    <string name="snackbar_label_title">Snackbar</string>
+    <string name="snackbar_message_text">Marked as favorite</string>
+    <string name="snackbar_action_text">Action</string>
+
+    <string name="dialog_label_title">Dialog</string>
+    <string name="dialog_button_label">Show dialog</string>
+
+    <string name="bottom_sheet_label_title">Bottom sheet</string>
+    <string name="bottom_sheet_button_label">How Long?</string>
+
+    <string name="image_label_title">Image</string>
+
+    <!--Theme Summary-->
+    <string name="label_color_scheme_title">Color scheme</string>
+
+    <string name="label_shape_system_title">Shape system</string>
+    <string name="shape_appearance_small_label">S</string>
+    <string name="shape_appearance_medium_label">M</string>
+    <string name="shape_appearance_large_label">L</string>
+
+    <string name="label_typography_scale_title">Typography scale</string>
+    <string name="text_appearance_h1_label">H1</string>
+    <string name="text_appearance_h2_label">H2</string>
+    <string name="text_appearance_h3_label">H3</string>
+    <string name="text_appearance_h4_label">H4</string>
+    <string name="text_appearance_h5_label">H5</string>
+    <string name="text_appearance_h6_label">H6</string>
+    <string name="text_appearance_subtitle_1_label">Subtitle 1</string>
+    <string name="text_appearance_subtitle_2_label">Subtitle 2</string>
+    <string name="text_appearance_body_1_label">Body 1</string>
+    <string name="text_appearance_body_2_label">Body 2</string>
+    <string name="text_appearance_button_label">Button</string>
+    <string name="text_appearance_caption_label">Caption</string>
+    <string name="text_appearance_overline_label">Overline</string>
+    <string name="text_field_hint_text1">My Name</string>
+    <string name="text_field_hint_text2">Your Name</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="auth">AUTH</string>
+    <string name="auth_number">Auth Number</string>
+    <string name="birthYear">출생년</string>
+    <string name="birthMonth">출생월</string>
+    <string name="birthDay">출생일</string>
+    <string name="birthTime">출생시</string>
+    <string name="add">ADD</string>
+    <string name="signIn">LOGIN</string>
+    <string name="do_you_have_not_an_account">Do you have not an account?</string>
+    <string name="registration">Register</string>
+    <string name="jLogo">TODO</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="name">Name</string>
+    <string name="phone">Phone</string>
+
+
+    //Menu Bar Strings
+    <string-array name="gend_menu">
+        <item>Male</item>
+        <item>Female</item>
+        <item>Intersex</item>
+    </string-array>
+
+    <string-array name="year_menu">
+        <item>1960년</item>
+        <item>1961년</item>
+        <item>1962년</item>
+        <item>1963년</item>
+        <item>1964년</item>
+        <item>1965년</item>
+        <item>1966년</item>
+        <item>1967년</item>
+        <item>1968년</item>
+        <item>1969년</item>
+        <item>1970년</item>
+        <item>1971년</item>
+        <item>1972년</item>
+        <item>1973년</item>
+        <item>1974년</item>
+        <item>1975년</item>
+        <item>1976년</item>
+        <item>1977년</item>
+        <item>1978년</item>
+        <item>1979년</item>
+        <item>1980년</item>
+        <item>1981년</item>
+        <item>1982년</item>
+        <item>1983년</item>
+        <item>1984년</item>
+        <item>1985년</item>
+        <item>1986년</item>
+        <item>1987년</item>
+        <item>1988년</item>
+        <item>1989년</item>
+        <item>1990년</item>
+        <item>1991년</item>
+        <item>1992년</item>
+        <item>1993년</item>
+        <item>1994년</item>
+        <item>1995년</item>
+        <item>1996년</item>
+        <item>1997년</item>
+        <item>1998년</item>
+        <item>1999년</item>
+        <item>2000년</item>
+        <item>2001년</item>
+        <item>2002년</item>
+        <item>2003년</item>
+        <item>2004년</item>
+        <item>2005년</item>
+        <item>2006년</item>
+        <item>2007년</item>
+        <item>2008년</item>
+        <item>2009년</item>
+        <item>2010년</item>
+        <item>2011년</item>
+        <item>2012년</item>
+        <item>2013년</item>
+        <item>2014년</item>
+    </string-array>
+
+    <string-array name="month_menu">
+        <item>Jan</item>
+        <item>Feb</item>
+        <item>Mar</item>
+        <item>Apr</item>
+        <item>May</item>
+        <item>Jun</item>
+        <item>Jul</item>
+        <item>Aug</item>
+        <item>Sep</item>
+        <item>Oct</item>
+        <item>Nov</item>
+        <item>Dec</item>
+    </string-array>
+
+    <string-array name="day_menu">
+        <item>1일</item>
+        <item>2일</item>
+        <item>3일</item>
+        <item>4일</item>
+        <item>5일</item>
+        <item>6일</item>
+        <item>7일</item>
+        <item>8일</item>
+        <item>9일</item>
+        <item>10일</item>
+        <item>11일</item>
+        <item>12일</item>
+        <item>13일</item>
+        <item>14일</item>
+        <item>15일</item>
+        <item>16일</item>
+        <item>17일</item>
+        <item>18일</item>
+        <item>19일</item>
+        <item>20일</item>
+        <item>21일</item>
+        <item>22일</item>
+        <item>23일</item>
+        <item>24일</item>
+        <item>25일</item>
+        <item>26일</item>
+        <item>27일</item>
+        <item>28일</item>
+        <item>29일</item>
+        <item>30일</item>
+        <item>31일</item>
+    </string-array>
+
+    <string-array name="time_menu">
+        <item>0시</item>
+        <item>1시</item>
+        <item>2시</item>
+        <item>3시</item>
+        <item>4시</item>
+        <item>5시</item>
+        <item>6시</item>
+        <item>7시</item>
+        <item>8시</item>
+        <item>9시</item>
+        <item>10시</item>
+        <item>11시</item>
+        <item>12시</item>
+        <item>13시</item>
+        <item>14시</item>
+        <item>15시</item>
+        <item>16시</item>
+        <item>17시</item>
+        <item>18시</item>
+        <item>19시</item>
+        <item>20시</item>
+        <item>21시</item>
+        <item>22시</item>
+        <item>23시</item>
+        <item>24시</item>
+    </string-array>
+</resources>
