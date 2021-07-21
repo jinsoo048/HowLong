@@ -1,78 +1,63 @@
 [
   {
-    "type": "header",
-    "version": "5.0.2",
-    "comment": "Export to JSON plugin for PHPMyAdmin"
+    "id": "1",
+    "range_Start": "-20",
+    "percenage": "-0.5",
+    "strength": "-5"
   },
   {
-    "type": "database",
-    "name": "howlong"
+    "id": "2",
+    "range_Start": "-15",
+    "percenage": "-0.4",
+    "strength": "-4"
   },
   {
-    "type": "table",
-    "name": "score_table",
-    "database": "howlong",
-    "data": [
-      {
-        "ID": "1",
-        "range_Start": "-20",
-        "percenage": "-0.5",
-        "strength": "-5"
-      },
-      {
-        "ID": "2",
-        "range_Start": "-15",
-        "percenage": "-0.4",
-        "strength": "-4"
-      },
-      {
-        "ID": "3",
-        "range_Start": "-10",
-        "percenage": "-0.3",
-        "strength": "-3"
-      },
-      {
-        "ID": "4",
-        "range_Start": "-5",
-        "percenage": "-0.2",
-        "strength": "-2"
-      },
-      {
-        "ID": "5",
-        "range_Start": "0",
-        "percenage": "-0.1",
-        "strength": "-1"
-      },
-      {
-        "ID": "6",
-        "range_Start": "5",
-        "percenage": "0.1",
-        "strength": "1"
-      },
-      {
-        "ID": "7",
-        "range_Start": "10",
-        "percenage": "0.2",
-        "strength": "2"
-      },
-      {
-        "ID": "8",
-        "range_Start": "15",
-        "percenage": "0.3",
-        "strength": "3"
-      },
-      {
-        "ID": "9",
-        "range_Start": "20",
-        "percenage": "0.4",
-        "strength": "4"
-      },
-      {
-        "ID": "10",
-        "range_Start": "25",
-        "percenage": "0.5",
-        "strength": "5"
-      }
-    ]
+    "id": "3",
+    "range_Start": "-10",
+    "percenage": "-0.3",
+    "strength": "-3"
+  },
+  {
+    "id": "4",
+    "range_Start": "-5",
+    "percenage": "-0.2",
+    "strength": "-2"
+  },
+  {
+    "id": "5",
+    "range_Start": "0",
+    "percenage": "-0.1",
+    "strength": "-1"
+  },
+  {
+    "id": "6",
+    "range_Start": "5",
+    "percenage": "0.1",
+    "strength": "1"
+  },
+  {
+    "id": "7",
+    "range_Start": "10",
+    "percenage": "0.2",
+    "strength": "2"
+  },
+  {
+    "id": "8",
+    "range_Start": "15",
+    "percenage": "0.3",
+    "strength": "3"
+  },
+  {
+    "id": "9",
+    "range_Start": "20",
+    "percenage": "0.4",
+    "strength": "4"
+  },
+  {
+    "id": "10",
+    "range_Start": "25",
+    "percenage": "0.5",
+    "strength": "5"
   }
 ]
+

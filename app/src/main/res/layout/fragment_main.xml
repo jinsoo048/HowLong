@@ -3,45 +3,27 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:gravity="center_horizontal"
-    android:orientation="vertical"
-    tools:context=".RegisterEmailFragment">
+    android:layout_height="match_parent">
 
     <LinearLayout
+        android:id="@+id/mainLl"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
         android:gravity="center_horizontal"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        app:layout_constraintTop_toTopOf="parent">
 
-        <ImageView
-            android:layout_width="wrap_content"
+        <TextView
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:contentDescription="@string/jLogo"
-            android:src="@drawable/ic_j_m" />
-
-        <EditText
-            android:id="@+id/emailEt"
-            android:layout_width="237dp"
-            android:layout_height="49dp"
-            android:layout_marginTop="20dp"
-            android:ems="10"
-            android:hint="@string/email"
-            android:inputType="textEmailAddress"
-            android:padding="10dp"
-            android:textColor="@color/black" />
-
-        <EditText
-            android:id="@+id/passwordEt"
-            android:layout_width="237dp"
-            android:layout_height="49dp"
+            android:layout_marginTop="30dp"
             android:layout_marginBottom="15dp"
-            android:ems="10"
-            android:hint="@string/password"
-            android:inputType="textPassword"
+            android:gravity="center_horizontal"
             android:padding="10dp"
-            android:textColor="@color/black" />
+            android:text="@string/guidance"
+            android:textSize="20sp"
+            tools:ignore="RtlSymmetry" />
 
         <EditText
             android:id="@+id/nameEt"
@@ -50,16 +32,6 @@
             android:ems="10"
             android:hint="@string/name"
             android:inputType="textPersonName"
-            android:padding="10dp"
-            android:textColor="@color/black" />
-
-        <EditText
-            android:id="@+id/phoneEt"
-            android:layout_width="237dp"
-            android:layout_height="49dp"
-            android:ems="10"
-            android:hint="@string/phone"
-            android:inputType="phone"
             android:padding="10dp"
             android:textColor="@color/black" />
 
@@ -89,7 +61,7 @@
 
                     <AutoCompleteTextView
                         android:id="@+id/genderAc"
-                        android:layout_width="120dp"
+                        android:layout_width="150dp"
                         android:layout_height="wrap_content"
                         android:inputType="none"
                         android:labelFor="@+id/genderTi"
@@ -190,61 +162,25 @@
                         android:inputType="none"
                         android:labelFor="@+id/timeTi"
                         app:layout_constraintStart_toStartOf="@+id/dayTi"
-                        app:layout_constraintTop_toBottomOf="@+id/dayTi" />
+                        app:layout_constraintTop_toBottomOf="@+id/dayTi"
+                        tools:ignore="LabelFor" />
                 </com.google.android.material.textfield.TextInputLayout>
             </LinearLayout>
 
         </LinearLayout>
-
-        <Button
-            android:id="@+id/registerBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="10dp"
-            android:padding="10dp"
-            android:text="REGISTER" />
-
-        <LinearLayout
-            android:id="@+id/linearLayout"
-            android:layout_width="match_parent"
-            android:layout_height="24dp"
-            android:layout_marginBottom="170dp"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/textView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="60dp"
-                android:layout_weight="1"
-                android:text="Do you have an account?"
-                android:textColor="@color/black"
-                android:textSize="18sp" />
-
-            <TextView
-                android:id="@+id/loginTv"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="2.6"
-                android:text="Login"
-                android:textColor="@color/black"
-                android:textSize="18sp"
-                android:textStyle="bold" />
-        </LinearLayout>
     </LinearLayout>
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/floatingActionButton"
+    <Button
+        android:id="@+id/addBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="30dp"
-        android:layout_weight="1"
-        android:clickable="true"
-        android:src="@drawable/resignation"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="10dp"
+        android:padding="10dp"
+        android:text="@string/loverAdd"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        tools:layout_editor_absoluteX="317dp"
-        tools:layout_editor_absoluteY="584dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mainLl" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

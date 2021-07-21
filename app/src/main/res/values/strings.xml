@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">HowLong</string>
+    <string name="app_name">Forever</string>
     <string name="year">Year</string>
     <string name="FirstName">FirstName</string>
     <string name="LastName">LastName</string>
@@ -129,6 +129,11 @@
     <string name="password">Password</string>
     <string name="name">Name</string>
     <string name="phone">Phone</string>
+    <string name="my_strength_sum">I</string>
+    <string name="your_strength_sum">You</string>
+    <string name="total_strength_sum">We</string>
+    <string name="guidance">Enter your lover information</string>
+    <string name="loverAdd">ADD</string>
 
 
     //Menu Bar Strings

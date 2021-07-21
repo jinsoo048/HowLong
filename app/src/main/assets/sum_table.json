@@ -1,113 +1,97 @@
 [
   {
-    "type": "header",
-    "version": "5.0.2",
-    "comment": "Export to JSON plugin for PHPMyAdmin"
+    "id": "1",
+    "psum_range_Start": "-90",
+    "answer": "둘이서 종교를 하나 만들어도 되겠어요"
   },
   {
-    "type": "database",
-    "name": "howlong"
+    "id": "2",
+    "psum_range_Start": "-80",
+    "answer": "철학을 하는 커플입니다."
   },
   {
-    "type": "table",
-    "name": "sum_table",
-    "database": "howlong",
-    "data": [
-      {
-        "ID": "1",
-        "psum_range_Start": "-90",
-        "answer": "둘이서 종교를 하나 만들어도 되겠어요"
-      },
-      {
-        "ID": "2",
-        "psum_range_Start": "-80",
-        "answer": "철학을 하는 커플입니다."
-      },
-      {
-        "ID": "3",
-        "psum_range_Start": "-70",
-        "answer": null
-      },
-      {
-        "ID": "4",
-        "psum_range_Start": "-60",
-        "answer": null
-      },
-      {
-        "ID": "5",
-        "psum_range_Start": "-50",
-        "answer": null
-      },
-      {
-        "ID": "6",
-        "psum_range_Start": "-40",
-        "answer": null
-      },
-      {
-        "ID": "7",
-        "psum_range_Start": "-30",
-        "answer": null
-      },
-      {
-        "ID": "8",
-        "psum_range_Start": "-20",
-        "answer": null
-      },
-      {
-        "ID": "9",
-        "psum_range_Start": "-10",
-        "answer": null
-      },
-      {
-        "ID": "10",
-        "psum_range_Start": "0",
-        "answer": null
-      },
-      {
-        "ID": "11",
-        "psum_range_Start": "10",
-        "answer": null
-      },
-      {
-        "ID": "12",
-        "psum_range_Start": "20",
-        "answer": null
-      },
-      {
-        "ID": "13",
-        "psum_range_Start": "30",
-        "answer": null
-      },
-      {
-        "ID": "14",
-        "psum_range_Start": "40",
-        "answer": null
-      },
-      {
-        "ID": "15",
-        "psum_range_Start": "50",
-        "answer": null
-      },
-      {
-        "ID": "16",
-        "psum_range_Start": "60",
-        "answer": null
-      },
-      {
-        "ID": "17",
-        "psum_range_Start": "70",
-        "answer": null
-      },
-      {
-        "ID": "18",
-        "psum_range_Start": "80",
-        "answer": null
-      },
-      {
-        "ID": "19",
-        "psum_range_Start": "90",
-        "answer": "둘이 있으면 폭발할것 같아요"
-      }
-    ]
+    "id": "3",
+    "psum_range_Start": "-70",
+    "answer": "철학을 하는 커플입니다."
+  },
+  {
+    "id": "4",
+    "psum_range_Start": "-60",
+    "answer": "철학을 하는 커플입니다."
+  },
+  {
+    "id": "5",
+    "psum_range_Start": "-50",
+    "answer": "철학을 하는 커플입니다."
+  },
+  {
+    "id": "6",
+    "psum_range_Start": "-40",
+    "answer": "철학을 하는 커플입니다."
+  },
+  {
+    "id": "7",
+    "psum_range_Start": "-30",
+    "answer": "철학을 하는 커플입니다."
+  },
+  {
+    "id": "8",
+    "psum_range_Start": "-20",
+    "answer": "철학을 하는 커플입니다."
+  },
+  {
+    "id": "9",
+    "psum_range_Start": "-10",
+    "answer": "철학을 하는 커플입니다."
+  },
+  {
+    "id": "10",
+    "psum_range_Start": "0",
+    "answer": "철학을 하는 커플입니다."
+  },
+  {
+    "id": "11",
+    "psum_range_Start": "10",
+    "answer": "철학을 하는 커플입니다."
+  },
+  {
+    "id": "12",
+    "psum_range_Start": "20",
+    "answer": "철학을 하는 커플입니다."
+  },
+  {
+    "id": "13",
+    "psum_range_Start": "30",
+    "answer": "철학을 하는 커플입니다."
+  },
+  {
+    "id": "14",
+    "psum_range_Start": "40",
+    "answer": "철학을 하는 커플입니다."
+  },
+  {
+    "id": "15",
+    "psum_range_Start": "50",
+    "answer": "철학을 하는 커플입니다."
+  },
+  {
+    "id": "16",
+    "psum_range_Start": "60",
+    "answer": "철학을 하는 커플입니다."
+  },
+  {
+    "id": "17",
+    "psum_range_Start": "70",
+    "answer": "철학을 하는 커플입니다."
+  },
+  {
+    "id": "18",
+    "psum_range_Start": "80",
+    "answer": "철학을 하는 커플입니다."
+  },
+  {
+    "id": "19",
+    "psum_range_Start": "90",
+    "answer": "둘이 있으면 폭발할것 같아요"
   }
 ]

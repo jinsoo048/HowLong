@@ -5,7 +5,7 @@ import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface CharacterDao {
-    @Query("SELECT * FROM character_table WHERE character = :myCharacter")
+    @Query("SELECT * FROM character_table WHERE character LIKE :myCharacter")
     fun getMyCharacter(myCharacter: String): Flow<Character>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)

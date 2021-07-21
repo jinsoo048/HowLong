@@ -7,3 +7,4 @@ import javax.inject.Singleton
 class CharacterRepository @Inject constructor(private val characterDao: CharacterDao) {
     fun getMyCharacter(myCharacter: String) = characterDao.getMyCharacter(myCharacter)
 }
+

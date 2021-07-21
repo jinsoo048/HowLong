@@ -1,20 +1,17 @@
 package com.jiban.howlong.viewmodels
 
-import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
-import com.jiban.howlong.data.character.Character
+import androidx.lifecycle.asLiveData
 import com.jiban.howlong.data.character.CharacterRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
 @HiltViewModel
 class CharacterViewModel @Inject internal constructor(
-    private val characterRepository: CharacterRepository,
-    private val savedStateHandle: SavedStateHandle
+    private val characterRepository: CharacterRepository
 ) : ViewModel() {
 
-    fun getMyCharacter(myCharacter: String): Flow<Character> =
-        characterRepository.getMyCharacter(myCharacter)
+    fun getMyCharacter(myCharacter: String) =
+        characterRepository.getMyCharacter(myCharacter).asLiveData()
 
 }

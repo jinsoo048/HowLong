@@ -22,4 +22,28 @@
         <item name="itemTextAppearance">?attr/textAppearanceBody2</item>
     </style>
 
+    <style name="Theme.App" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/shrine_pink_100</item>
+        <item name="colorOnPrimary">@color/black</item>
+        <item name="colorSecondary">@color/shrine_pink_50</item>
+        <item name="colorOnSecondary">@color/shrine_pink_900</item>
+        <item name="colorPrimaryVariant">@color/black</item>
+        <item name="colorPrimaryDark">@color/shrine_pink_100</item>
+        <item name="textAppearanceSubtitle1">@style/TextAppearance.App.Subtitle1</item>
+        <item name="shapeAppearanceSmallComponent">@style/ShapeAppearance.App.SmallComponent</item>
+    </style>
+
+    <style name="TextAppearance.App.Subtitle1" parent="TextAppearance.MaterialComponents.Subtitle1">
+        <item name="fontFamily"></item>
+        <item name="android:fontFamily"></item>
+    </style>
+
+    <style name="ShapeAppearance.App.SmallComponent" parent="ShapeAppearance.MaterialComponents.SmallComponent">
+        <item name="cornerFamily">cut</item>
+        <item name="cornerSize">4dp</item>
+    </style>
+
+    <color name="shrine_pink_100">#FF80AB</color>
+    <color name="shrine_pink_900">#FF8A80</color>
+    <color name="shrine_pink_50">#EA80FC</color>
 </resources>

@@ -2,8 +2,11 @@ package com.jiban.howlong.di
 
 import android.content.Context
 import com.jiban.howlong.data.AppDatabase
+import com.jiban.howlong.data.both.BothDao
 import com.jiban.howlong.data.character.CharacterDao
+import com.jiban.howlong.data.female.FemaleDao
 import com.jiban.howlong.data.gender.GenderDao
+import com.jiban.howlong.data.male.MaleDao
 import com.jiban.howlong.data.number.NumberDao
 import com.jiban.howlong.data.score.ScoreDao
 import com.jiban.howlong.data.sum.SumDao
@@ -17,6 +20,7 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 @Module
 class DatabaseModule {
+
     @Singleton
     @Provides
     fun provideAppDatabase(@ApplicationContext context: Context): AppDatabase {
@@ -46,5 +50,20 @@ class DatabaseModule {
     @Provides
     fun provideSumDao(appDatabase: AppDatabase): SumDao {
         return appDatabase.sumDao()
+    }
+
+    @Provides
+    fun provideMaleDao(appDatabase: AppDatabase): MaleDao {
+        return appDatabase.maleDao()
+    }
+
+    @Provides
+    fun provideFemaleDao(appDatabase: AppDatabase): FemaleDao {
+        return appDatabase.femaleDao()
+    }
+
+    @Provides
+    fun provideBothDao(appDatabase: AppDatabase): BothDao {
+        return appDatabase.bothDao()
     }
 }

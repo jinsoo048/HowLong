@@ -6,7 +6,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.jiban.howlong.databinding.FragmentOpenBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class OpenFragment : Fragment() {
     private var _binding: FragmentOpenBinding? = null
     private val binding get() = _binding !!

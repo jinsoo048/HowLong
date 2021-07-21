@@ -14,18 +14,19 @@
  * limitations under the License.
  */
 
-package com.jiban.howlong.utilities
+package com.jiban.howlong.data
+
+import androidx.room.TypeConverter
+import java.util.*
 
 /**
- * Constants used throughout the app.
+ * Type converters to allow Room to reference complex data types.
  */
-const val DATABASE_NAME = "howlong-db"
+class Converters {
+    @TypeConverter
+    fun calendarToDatestamp(calendar: Calendar): Long = calendar.timeInMillis
 
-const val CHARACTER_DATA_FILENAME = "character_table.json"
-const val GENDER_DATA_FILENAME = "gender_table.json"
-const val NUMBER_DATA_FILENAME = "number_table.json"
-const val SCORE_DATA_FILENAME = "score_table.json"
-const val SUM_DATA_FILENAME = "sum_table.json"
-const val MALE_DATA_FILENAME = "male_table.json"
-const val FEMALE_DATA_FILENAME = "female_table.json"
-const val BOTH_DATA_FILENAME = "both_table.json"
+    @TypeConverter
+    fun datestampToCalendar(value: Long): Calendar =
+        Calendar.getInstance().apply { timeInMillis = value }
+}

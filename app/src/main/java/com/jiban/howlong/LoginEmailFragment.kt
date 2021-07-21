@@ -1,6 +1,5 @@
 package com.jiban.howlong
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -11,10 +10,12 @@ import androidx.fragment.app.Fragment
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.ktx.auth
+import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.jiban.howlong.databinding.FragmentLoginEmailBinding
+import dagger.hilt.android.AndroidEntryPoint
 
-
+@AndroidEntryPoint
 class LoginEmailFragment : Fragment() {
     private var _binding: FragmentLoginEmailBinding? = null
     private val binding get() = _binding !!
@@ -27,7 +28,6 @@ class LoginEmailFragment : Fragment() {
         if (currentUser != null) {
             //reload();
             fragmentManager?.beginTransaction()?.detach(this)?.attach(this)?.commit()
-
         }
     }
 
@@ -40,18 +40,12 @@ class LoginEmailFragment : Fragment() {
 
         // context?.let { FirebaseApp.initializeApp(it) }
         auth = FirebaseAuth.getInstance()
-        //auth = Firebase.auth
-        //auth = FirebaseAuth.getInstance()
-
 
         //enter control
         val editTexts: ArrayList<EditText> = ArrayList()
 
         editTexts.add(binding.editTextEmailAddress)
         editTexts.add(binding.editTextPassword)
-
-
-
 
         binding.loginBtn.setOnClickListener {
             val myEmail = binding.editTextEmailAddress.text.toString()
@@ -74,8 +68,35 @@ class LoginEmailFragment : Fragment() {
                         val user = auth.currentUser
                         updateUI(user)
 
-                        val intent = Intent(activity, MainActivity::class.java)
-                        activity?.startActivity(intent)
+                        //get user email address
+                        val currentUser = Firebase.auth.currentUser
+                        // var userEmail: String? = null
+                        var userEmail = currentUser !!.email
+
+                        // connect to db
+                        val db = Firebase.firestore
+                        db.collection("lovers")
+                            .whereEqualTo("email", userEmail)
+                            .get()
+                            .addOnSuccessListener { documents ->
+                                for (document in documents) {
+                                    val fragment = AllCheckFragment()
+                                    activity?.supportFragmentManager?.beginTransaction()
+                                        ?.replace(R.id.fragmentCv, fragment, "allCheckFragment")
+                                        ?.commit()
+                                }
+                            }
+                            .addOnFailureListener {
+                                val fragment = MainFragment()
+                                activity?.supportFragmentManager?.beginTransaction()
+                                    ?.replace(R.id.fragmentCv, fragment, "mainFragment")
+                                    ?.commit()
+                            }
+
+                        val fragment = MainFragment()
+                        activity?.supportFragmentManager?.beginTransaction()
+                            ?.replace(R.id.fragmentCv, fragment, "mainFragment")
+                            ?.commit()
                     }
                 }
             }.addOnFailureListener { exception ->
@@ -87,7 +108,7 @@ class LoginEmailFragment : Fragment() {
         binding.registerTv.setOnClickListener {
             val fragment = RegisterEmailFragment()
             activity?.supportFragmentManager?.beginTransaction()
-                ?.replace(R.id.fragmentCv, fragment, "fragmnetId")
+                ?.replace(R.id.fragmentCv, fragment, "registerEmailFragment")
                 ?.commit()
         }
 
