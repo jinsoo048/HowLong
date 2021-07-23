@@ -1,28 +1,29 @@
 package com.jiban.howlong
 
-import android.content.Intent
+import android.content.ContentValues.TAG
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.*
+import android.widget.ArrayAdapter
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
-import com.jiban.howlong.databinding.FragmentRegisterEmailBinding
-import dagger.hilt.android.AndroidEntryPoint
-import java.util.*
+import com.jiban.howlong.databinding.FragmentAddLoverBinding
 
-@AndroidEntryPoint
-class RegisterEmailFragment : Fragment() {
+class AddLoverFragment : Fragment() {
 
     private lateinit var auth: FirebaseAuth
-    private var _binding: FragmentRegisterEmailBinding? = null
-    private val binding get() = _binding !!
+    private lateinit var binding: FragmentAddLoverBinding
+
+    private var currentUser: String? = null
+
+    private var myEmail: String? = null
+    private var loverName: String? = null
 
     //Birth Information
     private var myGend: String? = null
@@ -31,10 +32,13 @@ class RegisterEmailFragment : Fragment() {
     private var myDay: String? = null
     private var myTime: String? = null
 
+
     override fun onStart() {
         super.onStart()
         // Check if user is signed in (non-null) and update UI accordingly.
-        val currentUser = auth.currentUser
+        //auth
+        auth = FirebaseAuth.getInstance()
+        currentUser = auth.currentUser.toString()
         if (currentUser != null) {
             //reload();
             fragmentManager?.beginTransaction()?.detach(this)?.attach(this)?.commit()
@@ -45,8 +49,8 @@ class RegisterEmailFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        _binding = FragmentRegisterEmailBinding.inflate(inflater, container, false)
+    ): View {
+        binding = FragmentAddLoverBinding.inflate(layoutInflater)
 
         // load autocomplete list
         val gendList = resources.getStringArray(R.array.gend_menu)
@@ -54,6 +58,7 @@ class RegisterEmailFragment : Fragment() {
         val monthList = resources.getStringArray(R.array.month_menu)
         val dayList = resources.getStringArray(R.array.day_menu)
         val timeList = resources.getStringArray(R.array.time_menu)
+
 
         val gendAdapter: ArrayAdapter<String>? =
             context?.let { ArrayAdapter(it, R.layout.item_common_menu, gendList) }
@@ -91,48 +96,34 @@ class RegisterEmailFragment : Fragment() {
             Toast.makeText(context, myTime + "을 선택하셨습니다!", Toast.LENGTH_SHORT).show()
         }
 
-        //auth
-        auth = FirebaseAuth.getInstance()
 
-        binding.registerBtn.setOnClickListener {
+        binding.addBtn.setOnClickListener {
 
-            val myEmail = binding.emailEt.text.toString()
-            val myPassword = binding.passwordEt.text.toString()
-            val myName = binding.nameEt.text.toString()
-            val myPhone = binding.phoneEt.text.toString()
+            //get user email address
+            val currentUser = Firebase.auth.currentUser
+            var userEmail: String? = null
+            userEmail = currentUser !!.email
 
-            if (myEmail == "" || myPassword == "") {
-                Toast.makeText(
-                    context,
-                    "email address와 password는 인증을 위해서 필수사항입니다.입력부탁드립니다.",
-                    Toast.LENGTH_SHORT
-                ).show()
-                return@setOnClickListener
-            }
-
-            auth.createUserWithEmailAndPassword(myEmail, myPassword).addOnCompleteListener { task ->
-                if (task.isSuccessful) {
-                    Toast.makeText(
-                        context,
-                        "Registration is successful!",
-                        Toast.LENGTH_LONG
-                    ).show()
-                    val intent = Intent(activity, MainActivity::class.java)
-                    activity?.startActivity(intent)
-                }
-            }.addOnFailureListener { exception ->
-                Toast.makeText(
-                    context,
-                    exception.localizedMessage,
-                    Toast.LENGTH_LONG
-                ).show()
-
-            }
-
-            // register profile
+            // connect to db
             val db = Firebase.firestore
-            // Create a new user with a first and last name
-            if (myName == "" || myGend == "" || myYear == "" || myMonth == "" || myDay == "" || myTime == "") {
+            db.collection("lovers")
+                .whereEqualTo("email", userEmail)
+                .get()
+                .addOnSuccessListener { documents ->
+                    for (document in documents) {
+                        Log.d(TAG, "${document.id} => ${document.data}")
+                        Toast.makeText(
+                            context,
+                            "당신의 lover는 이미 등록되어 있습니다.혹시 당신은 바람둥이?",
+                            Toast.LENGTH_SHORT
+                        ).show()
+                        return@addOnSuccessListener
+                    }
+                }
+
+            loverName = binding.nameEt.text.toString()
+
+            if (loverName == "" || myGend == "" || myYear == "" || myMonth == "" || myDay == "" || myTime == "") {
                 Toast.makeText(
                     context,
                     "이름과 출생일정보는 음양오행 분석을 위해서 필수사항입니다.입력부탁드립니다.",
@@ -141,10 +132,9 @@ class RegisterEmailFragment : Fragment() {
                 return@setOnClickListener
             }
 
-            val user = hashMapOf(
-                "email" to myEmail,
-                "name" to myName,
-                "phoneNumber" to myPhone,
+            val lover = hashMapOf(
+                "userEmail" to userEmail,
+                "loverName" to loverName,
                 "gender" to myGend,
                 "birthYear" to myYear,
                 "birthMonth" to myMonth,
@@ -152,40 +142,23 @@ class RegisterEmailFragment : Fragment() {
                 "birthTime" to myTime
             )
 // Add a new document with a generated ID
-            db.collection("users").document(myEmail)
-                .set(user)
-                .addOnSuccessListener {
-                    Log.d("JJS Register", "DocumentSnapshot successfully written!")
-                }
-                .addOnFailureListener { e ->
-                    Log.w("JJS Register", "Error adding document", e)
-                }
+            if (userEmail != null) {
+                db.collection("lover").document(userEmail)
+                    .set(lover)
+                    .addOnSuccessListener {
+                        Log.d(TAG, "DocumentSnapshot successfully written!")
+                    }
+                    .addOnFailureListener { e ->
+                        Log.w("JJS Register", "Error adding document", e)
+                    }
+            }
         }
-        //fun goToLogin(view: View)
-        binding.loginTv.setOnClickListener {
-            val fragment = LoginEmailFragment()
-            activity?.supportFragmentManager?.beginTransaction()
-                ?.replace(R.id.fragmentCv, fragment, "loginEmailFragment")
-                ?.commit()
-        }
-        val view = binding.root
-        return view
-    }
 
-    private fun updateUI(user: FirebaseUser?) {
-        // No-op
-    }
+        val fragment = com.jiban.howlong.AllCheckFragment()
+        activity?.supportFragmentManager?.beginTransaction()
+            ?.replace(R.id.fragmentCv, fragment, "allCheckFragment")
+            ?.commit()
 
-    private fun signOut() {
-        // [START auth_sign_out]
-        Firebase.auth.signOut()
-        // [END auth_sign_out]
-    }
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
+        return binding.root
     }
 }
-
-

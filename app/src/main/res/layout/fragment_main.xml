@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/linearLayout2"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -9,178 +9,157 @@
         android:id="@+id/mainLl"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:gravity="center_horizontal"
-        android:orientation="vertical"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/allBt"
         app:layout_constraintTop_toTopOf="parent">
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
-            android:layout_marginBottom="15dp"
-            android:gravity="center_horizontal"
-            android:padding="10dp"
-            android:text="@string/guidance"
-            android:textSize="20sp"
-            tools:ignore="RtlSymmetry" />
-
-        <EditText
-            android:id="@+id/nameEt"
-            android:layout_width="237dp"
-            android:layout_height="49dp"
-            android:ems="10"
-            android:hint="@string/name"
-            android:inputType="textPersonName"
-            android:padding="10dp"
-            android:textColor="@color/black" />
-
-        <LinearLayout
-            android:id="@+id/menuLl"
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/myCard"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:orientation="vertical"
-            android:padding="10dp">
+            android:layout_margin="8dp"
+            android:layout_weight="1">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
-                android:orientation="horizontal">
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
 
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/genderTi"
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu"
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:gravity="center_vertical"
-                    android:hint="@string/GenderMenu"
-                    app:layout_constraintStart_toStartOf="@+id/nameEt"
-                    app:layout_constraintTop_toBottomOf="@+id/nameEt">
+                    android:orientation="vertical"
+                    android:padding="16dp">
 
-                    <AutoCompleteTextView
-                        android:id="@+id/genderAc"
-                        android:layout_width="150dp"
+                    <!-- Title, secondary and supporting text -->
+                    <TextView
+                        android:id="@+id/myNameTv"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:inputType="none"
-                        android:labelFor="@+id/genderTi"
-                        app:layout_constraintStart_toStartOf="@+id/nameEt"
-                        app:layout_constraintTop_toBottomOf="@+id/nameEt"
-                        tools:ignore="LabelFor" />
-                </com.google.android.material.textfield.TextInputLayout>
+                        android:text="@string/name"
+                        android:textAppearance="?attr/textAppearanceHeadline6" />
+
+                    <TextView
+                        android:id="@+id/myYearTv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="@string/birthYear"
+                        android:textAppearance="?attr/textAppearanceBody2"
+                        android:textColor="?android:attr/textColorSecondary" />
+
+                    <TextView
+                        android:id="@+id/myMonthTv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:text="@string/birthMonth"
+                        android:textAppearance="?attr/textAppearanceBody2"
+                        android:textColor="?android:attr/textColorSecondary" />
+
+                    <TextView
+                        android:id="@+id/myDayTv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:text="@string/birthDay"
+                        android:textAppearance="?attr/textAppearanceBody2"
+                        android:textColor="?android:attr/textColorSecondary" />
+
+                    <TextView
+                        android:id="@+id/myTimeTv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:text="@string/birthTime"
+                        android:textAppearance="?attr/textAppearanceBody2"
+                        android:textColor="?android:attr/textColorSecondary" />
+                </LinearLayout>
+
             </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/yourCard"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:layout_weight="1">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
 
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/yearTi"
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu"
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="5dp"
-                    android:gravity="center_vertical"
-                    android:hint="@string/YearMenu"
-                    app:layout_constraintStart_toStartOf="@+id/nameEt"
-                    app:layout_constraintTop_toBottomOf="@+id/nameEt">
+                    android:orientation="vertical"
+                    android:padding="16dp">
 
-                    <AutoCompleteTextView
-                        android:id="@+id/yearAc"
-                        android:layout_width="120dp"
+                    <!-- Title, secondary and supporting text -->
+                    <TextView
+                        android:id="@+id/yourNameTv"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:inputType="none"
-                        android:labelFor="@+id/yearTi"
-                        app:layout_constraintStart_toStartOf="@+id/nameEt"
-                        app:layout_constraintTop_toBottomOf="@+id/nameEt"
-                        tools:ignore="LabelFor" />
-                </com.google.android.material.textfield.TextInputLayout>
+                        android:text="@string/name"
+                        android:textAppearance="?attr/textAppearanceHeadline6" />
 
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/monthTi"
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="center_vertical"
-                    android:hint="@string/MonthMenu"
-                    app:layout_constraintStart_toStartOf="@+id/yearTi"
-                    app:layout_constraintTop_toBottomOf="@+id/yearTi">
-
-                    <AutoCompleteTextView
-                        android:id="@+id/monthAc"
-                        android:layout_width="120dp"
+                    <TextView
+                        android:id="@+id/yourYearTv"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:inputType="none"
-                        android:labelFor="@+id/monthTi"
-                        app:layout_constraintStart_toStartOf="@+id/yearTi"
-                        app:layout_constraintTop_toBottomOf="@+id/yearTi" />
-                </com.google.android.material.textfield.TextInputLayout>
+                        android:layout_marginTop="8dp"
+                        android:text="@string/birthYear"
+                        android:textAppearance="?attr/textAppearanceBody2"
+                        android:textColor="?android:attr/textColorSecondary" />
+
+                    <TextView
+                        android:id="@+id/yourMonthTv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:text="@string/birthMonth"
+                        android:textAppearance="?attr/textAppearanceBody2"
+                        android:textColor="?android:attr/textColorSecondary" />
+
+                    <TextView
+                        android:id="@+id/yourDayTv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:text="@string/birthDay"
+                        android:textAppearance="?attr/textAppearanceBody2"
+                        android:textColor="?android:attr/textColorSecondary" />
+
+                    <TextView
+                        android:id="@+id/yourTimeTv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:text="@string/birthTime"
+                        android:textAppearance="?attr/textAppearanceBody2"
+                        android:textColor="?android:attr/textColorSecondary" />
+                </LinearLayout>
+
             </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
+        </com.google.android.material.card.MaterialCardView>
 
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/dayTi"
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="5dp"
-                    android:gravity="center_vertical"
-                    android:hint="@string/DayMenu"
-                    app:layout_constraintStart_toStartOf="@+id/monthTi"
-                    app:layout_constraintTop_toBottomOf="@+id/monthTi">
-
-                    <AutoCompleteTextView
-                        android:id="@+id/dayAc"
-                        android:layout_width="120dp"
-                        android:layout_height="wrap_content"
-                        android:inputType="none"
-                        android:labelFor="@+id/dayTi"
-                        app:layout_constraintStart_toStartOf="@+id/monthTi"
-                        app:layout_constraintTop_toBottomOf="@+id/monthTi" />
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/timeTi"
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="center_vertical"
-                    android:hint="@string/TimeMenu"
-                    app:layout_constraintStart_toStartOf="@+id/dayTi"
-                    app:layout_constraintTop_toBottomOf="@+id/dayTi">
-
-                    <AutoCompleteTextView
-                        android:id="@+id/timeAc"
-                        android:layout_width="120dp"
-                        android:layout_height="wrap_content"
-                        android:inputType="none"
-                        android:labelFor="@+id/timeTi"
-                        app:layout_constraintStart_toStartOf="@+id/dayTi"
-                        app:layout_constraintTop_toBottomOf="@+id/dayTi"
-                        tools:ignore="LabelFor" />
-                </com.google.android.material.textfield.TextInputLayout>
-            </LinearLayout>
-
-        </LinearLayout>
     </LinearLayout>
 
     <Button
-        android:id="@+id/addBtn"
+        android:id="@+id/allBt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
         android:layout_marginBottom="10dp"
-        android:padding="10dp"
-        android:text="@string/loverAdd"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:text="@string/go"
+        android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/mainLl" />
+        app:layout_constraintBottom_toBottomOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,5 +1,6 @@
 package com.jiban.howlong
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
@@ -26,6 +27,11 @@ class MainActivity : AppCompatActivity() {
 
         binding.topAppBar.setOnMenuItemClickListener { menuItem ->
             when (menuItem.itemId) {
+                R.id.home -> {
+                    val intent = Intent(this, MainActivity::class.java)
+                    startActivity(intent)
+                    true
+                }
                 R.id.login -> {
                     val fragment: Fragment = LoginEmailFragment()
                     val transaction: FragmentTransaction = supportFragmentManager.beginTransaction()

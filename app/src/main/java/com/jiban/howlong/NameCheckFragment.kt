@@ -26,7 +26,6 @@ class NameCheckFragment : Fragment() {
 
     private val characterViewModel: CharacterViewModel by viewModels()
 
-    //private val dataShareViewModel: DataShareViewModel by viewModels()
     private lateinit var dataShareViewModel: DataShareViewModel
     private lateinit var strengthSum: StrengthSum
 
@@ -40,7 +39,6 @@ class NameCheckFragment : Fragment() {
     ): View? {
 
         _binding = FragmentNameCheckBinding.inflate(inflater, container, false)
-
 
         dataShareViewModel = activity?.run {
             ViewModelProviders.of(this).get(DataShareViewModel::class.java)

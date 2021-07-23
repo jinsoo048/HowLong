@@ -15,6 +15,7 @@ import com.google.firebase.ktx.Firebase
 import com.jiban.howlong.databinding.FragmentLoginEmailBinding
 import dagger.hilt.android.AndroidEntryPoint
 
+
 @AndroidEntryPoint
 class LoginEmailFragment : Fragment() {
     private var _binding: FragmentLoginEmailBinding? = null
@@ -63,7 +64,7 @@ class LoginEmailFragment : Fragment() {
             auth.signInWithEmailAndPassword(myEmail, myPassword).addOnCompleteListener { task ->
                 if (task.isSuccessful) {
                     if (task.isSuccessful) {
-                        Toast.makeText(context, "Login is successful!!!!!!!!!!!", Toast.LENGTH_LONG)
+                        Toast.makeText(context, "Login is successful!", Toast.LENGTH_LONG)
                             .show()
                         val user = auth.currentUser
                         updateUI(user)
@@ -75,28 +76,24 @@ class LoginEmailFragment : Fragment() {
 
                         // connect to db
                         val db = Firebase.firestore
-                        db.collection("lovers")
-                            .whereEqualTo("email", userEmail)
-                            .get()
-                            .addOnSuccessListener { documents ->
-                                for (document in documents) {
-                                    val fragment = AllCheckFragment()
+                        if (userEmail != null) {
+                            val docRef1 = db.collection("lover").document(userEmail)
+                            docRef1.get()
+                                .addOnSuccessListener { document ->
+                                    if (document != null) {
+                                        val fragment = MainFragment()
+                                        activity?.supportFragmentManager?.beginTransaction()
+                                            ?.replace(R.id.fragmentCv, fragment, "MainFragment")
+                                            ?.commit()
+                                    }
+                                }
+                                .addOnFailureListener {
+                                    val fragment = AddLoverFragment()
                                     activity?.supportFragmentManager?.beginTransaction()
-                                        ?.replace(R.id.fragmentCv, fragment, "allCheckFragment")
+                                        ?.replace(R.id.fragmentCv, fragment, "AddLoverFragment")
                                         ?.commit()
                                 }
-                            }
-                            .addOnFailureListener {
-                                val fragment = MainFragment()
-                                activity?.supportFragmentManager?.beginTransaction()
-                                    ?.replace(R.id.fragmentCv, fragment, "mainFragment")
-                                    ?.commit()
-                            }
-
-                        val fragment = MainFragment()
-                        activity?.supportFragmentManager?.beginTransaction()
-                            ?.replace(R.id.fragmentCv, fragment, "mainFragment")
-                            ?.commit()
+                        }
                     }
                 }
             }.addOnFailureListener { exception ->
@@ -130,4 +127,5 @@ class LoginEmailFragment : Fragment() {
         super.onDestroyView()
         _binding = null
     }
+
 }

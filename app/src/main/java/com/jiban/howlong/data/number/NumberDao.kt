@@ -5,7 +5,7 @@ import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface NumberDao {
-    @Query("SELECT * FROM number_table WHERE number = :myNumber")
+    @Query("SELECT * FROM number_table WHERE number LIKE :myNumber")
     fun getMyNumber(myNumber: String): Flow<Number>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)

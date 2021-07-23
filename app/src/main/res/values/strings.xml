@@ -12,7 +12,7 @@
     <string name="register">register</string>
     <string name="content_description_login">content_description_login</string>
     <string name="content_description_register">content_description_register</string>
-    <string name="HowLong">How Long</string>
+    <string name="HowLong">Forever</string>
 
     // from MaterialThemeBuilder
     <string name="theme_name_hint">Theme name…</string>
@@ -134,6 +134,8 @@
     <string name="total_strength_sum">We</string>
     <string name="guidance">Enter your lover information</string>
     <string name="loverAdd">ADD</string>
+    <string name="content_description_home">home</string>
+    <string name="go">Go!</string>
 
 
     //Menu Bar Strings

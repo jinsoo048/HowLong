@@ -22,9 +22,7 @@ class ResultFragment : androidx.fragment.app.Fragment() {
     private val femaleViewModel: FemaleViewModel by viewModels()
     private val bothViewModel: BothViewModel by viewModels()
 
-    //private val dataShareViewModel:DataShareViewModel by viewModels()
     private lateinit var dataShareViewModel: DataShareViewModel
-
 
     @SuppressLint("SetTextI18n")
     override fun onCreateView(
@@ -33,6 +31,7 @@ class ResultFragment : androidx.fragment.app.Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentResultBinding.inflate(layoutInflater)
+
         var myScore: Int = 0
         var yourScore: Int = 0
         var totalScore: Int = 0
