@@ -17,8 +17,10 @@ import com.jiban.howlong.databinding.FragmentAddLoverBinding
 
 class AddLoverFragment : Fragment() {
 
+    private var _binding: FragmentAddLoverBinding? = null
+    private val binding get() = _binding !!
+
     private lateinit var auth: FirebaseAuth
-    private lateinit var binding: FragmentAddLoverBinding
 
     private var currentUser: String? = null
 
@@ -36,9 +38,7 @@ class AddLoverFragment : Fragment() {
     override fun onStart() {
         super.onStart()
         // Check if user is signed in (non-null) and update UI accordingly.
-        //auth
-        auth = FirebaseAuth.getInstance()
-        currentUser = auth.currentUser.toString()
+        val currentUser = auth.currentUser
         if (currentUser != null) {
             //reload();
             fragmentManager?.beginTransaction()?.detach(this)?.attach(this)?.commit()
@@ -50,7 +50,11 @@ class AddLoverFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentAddLoverBinding.inflate(layoutInflater)
+        //binding = FragmentAddLoverBinding.inflate(layoutInflater)
+        _binding = FragmentAddLoverBinding.inflate(inflater, container, false)
+
+        // initialized
+        auth = FirebaseAuth.getInstance()
 
         // load autocomplete list
         val gendList = resources.getStringArray(R.array.gend_menu)
@@ -58,7 +62,6 @@ class AddLoverFragment : Fragment() {
         val monthList = resources.getStringArray(R.array.month_menu)
         val dayList = resources.getStringArray(R.array.day_menu)
         val timeList = resources.getStringArray(R.array.time_menu)
-
 
         val gendAdapter: ArrayAdapter<String>? =
             context?.let { ArrayAdapter(it, R.layout.item_common_menu, gendList) }
@@ -106,11 +109,10 @@ class AddLoverFragment : Fragment() {
 
             // connect to db
             val db = Firebase.firestore
-            db.collection("lovers")
-                .whereEqualTo("email", userEmail)
+            db.collection("lover").document(userEmail.toString())
                 .get()
-                .addOnSuccessListener { documents ->
-                    for (document in documents) {
+                .addOnSuccessListener { document ->
+                    if (document.exists()) {
                         Log.d(TAG, "${document.id} => ${document.data}")
                         Toast.makeText(
                             context,
@@ -147,6 +149,16 @@ class AddLoverFragment : Fragment() {
                     .set(lover)
                     .addOnSuccessListener {
                         Log.d(TAG, "DocumentSnapshot successfully written!")
+                        Toast.makeText(
+                            context,
+                            "Succeed to add your lover!",
+                            Toast.LENGTH_SHORT
+                        ).show()
+                        //go to check
+                        val fragment = com.jiban.howlong.AllCheckFragment()
+                        activity?.supportFragmentManager?.beginTransaction()
+                            ?.replace(R.id.fragmentCv, fragment, "allCheckFragment")
+                            ?.commit()
                     }
                     .addOnFailureListener { e ->
                         Log.w("JJS Register", "Error adding document", e)
@@ -154,11 +166,12 @@ class AddLoverFragment : Fragment() {
             }
         }
 
-        val fragment = com.jiban.howlong.AllCheckFragment()
-        activity?.supportFragmentManager?.beginTransaction()
-            ?.replace(R.id.fragmentCv, fragment, "allCheckFragment")
-            ?.commit()
-
         return binding.root
     }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
+
 }

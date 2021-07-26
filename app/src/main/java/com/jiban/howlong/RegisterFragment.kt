@@ -26,8 +26,10 @@ class RegisterFragment : Fragment() {
         super.onStart()
         // Check if user is signed in (non-null) and update UI accordingly.
         val currentUser = auth.currentUser
-
-        //updateUI(currentUser)
+        if (currentUser != null) {
+            //reload();
+            fragmentManager?.beginTransaction()?.detach(this)?.attach(this)?.commit()
+        }
     }
 
 
@@ -56,6 +58,9 @@ class RegisterFragment : Fragment() {
             val myBirthDay: String = binding.dayEt.text.toString()
             val myBirthTime: String = binding.timeEt.text.toString()
 
+
+            // initialized
+            auth = FirebaseAuth.getInstance()
 
             val db = Firebase.firestore
             // Create a new user with a first and last name

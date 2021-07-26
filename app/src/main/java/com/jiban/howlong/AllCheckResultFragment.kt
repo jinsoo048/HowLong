@@ -11,11 +11,13 @@ import androidx.lifecycle.ViewModelProviders
 import com.jiban.howlong.databinding.FragmentAllCheckResultBinding
 import com.jiban.howlong.viewmodels.*
 import dagger.hilt.android.AndroidEntryPoint
+import kotlin.math.absoluteValue
 
 @AndroidEntryPoint
 class AllCheckResultFragment : Fragment() {
+    private var _binding: FragmentAllCheckResultBinding? = null
+    private val binding get() = _binding !!
 
-    private lateinit var binding: FragmentAllCheckResultBinding
     private lateinit var dataShareViewModel: DataShareViewModel
     private lateinit var dataBirthShareViewModel: DataBirthShareViewModel
 
@@ -30,14 +32,15 @@ class AllCheckResultFragment : Fragment() {
     private var myBirthScore: Int = 0
     private var yourBirthScore: Int = 0
     private var totalBirthScore: Int = 0
+    private var expectedTime: Int = 0
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentAllCheckResultBinding.inflate(layoutInflater)
-
+        //binding = FragmentAllCheckResultBinding.inflate(layoutInflater)
+        _binding = FragmentAllCheckResultBinding.inflate(inflater, container, false)
         ////Name
         // result sum
         dataShareViewModel = activity?.run {
@@ -60,19 +63,14 @@ class AllCheckResultFragment : Fragment() {
             binding.totalSumTv.text = (totalScore * 100 / 10).toString()
 
             //advice
-            maleViewModel.getMale(myScore).observe(viewLifecycleOwner, Observer {
-                binding.myWeakTv.text = it.weak
-                binding.myStrongTv.text = it.strong
+            bothViewModel.getBoth(myScore).observe(viewLifecycleOwner, Observer {
+                binding.myWeakTv.text = it.nameWeak
+                binding.myStrongTv.text = it.nameStrong
             })
-            femaleViewModel.getFemale(yourScore).observe(viewLifecycleOwner, Observer {
-                binding.yourWeakTv.text = it.weak
-                binding.yourStrongTv.text = it.strong
+            bothViewModel.getBoth(yourScore).observe(viewLifecycleOwner, Observer {
+                binding.yourWeakTv.text = it.nameWeak
+                binding.yourStrongTv.text = it.nameStrong
             })
-            bothViewModel.getBoth(totalScore).observe(viewLifecycleOwner, Observer {
-                binding.bothWeakTv.text = it.weak
-                binding.bothStrongTv.text = it.strong
-            })
-
             //bar
             barCalc()
         })
@@ -94,19 +92,19 @@ class AllCheckResultFragment : Fragment() {
             binding.totalBirthSumTv.text = (totalBirthScore * 100 / 10).toString()
 
             //advice
-            maleViewModel.getMale(myBirthScore).observe(viewLifecycleOwner, Observer {
-                binding.myBirthWeakTv.text = it.weak
-                binding.myBirthStrongTv.text = it.strong
+            bothViewModel.getBoth(myBirthScore).observe(viewLifecycleOwner, Observer {
+                binding.myBirthWeakTv.text = it.birthWeak
+                binding.myBirthStrongTv.text = it.birthStrong
             })
-            femaleViewModel.getFemale(yourBirthScore).observe(viewLifecycleOwner, Observer {
-                binding.yourBirthWeakTv.text = it.weak
-                binding.yourBirthStrongTv.text = it.strong
+            bothViewModel.getBoth(yourBirthScore).observe(viewLifecycleOwner, Observer {
+                binding.yourBirthWeakTv.text = it.birthWeak
+                binding.yourBirthStrongTv.text = it.birthStrong
             })
             bothViewModel.getBoth(totalBirthScore).observe(viewLifecycleOwner, Observer {
-                binding.bothBirthWeakTv.text = it.weak
-                binding.bothBirthStrongTv.text = it.strong
+                binding.bothWeakTv.text = it.weak
+                binding.bothStrongTv.text = it.strong
+                binding.relationShipTv.text = it.relationship
             })
-
             //bar
             barCalc()
         })
@@ -123,5 +121,13 @@ class AllCheckResultFragment : Fragment() {
         binding.bothSumRb.rating =
             (((totalScore.toFloat() + 10) / 2) + ((totalBirthScore.toFloat() + 10) / 2)) / 2
 
+        expectedTime =
+            (100 * (10 - ((((totalScore.toFloat()) + ((totalBirthScore.toFloat())))).absoluteValue)) / 10).toInt()
+        binding.expectedTimeTv.text = expectedTime.toString()
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }

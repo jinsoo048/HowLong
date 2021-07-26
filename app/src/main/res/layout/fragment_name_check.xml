@@ -62,16 +62,17 @@
         android:id="@+id/howlongBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/keyline_4"
+        android:layout_marginTop="25dp"
         android:text="@string/bottom_sheet_button_label"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/sumFl"
         app:layout_constraintTop_toBottomOf="@+id/yourNameTi" />
 
     <FrameLayout
         android:id="@+id/sumFl"
         android:layout_width="match_parent"
-        android:layout_height="400dp"
+        android:layout_height="350dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@id/howlongBtn"></FrameLayout>
 

@@ -9,15 +9,20 @@
     tools:context=".RegisterEmailFragment">
 
     <LinearLayout
+        android:id="@+id/linearLayout5"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="40dp"
         android:gravity="center_horizontal"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
             android:contentDescription="@string/jLogo"
             android:src="@drawable/ic_j_m" />
 
@@ -25,7 +30,7 @@
             android:id="@+id/emailEt"
             android:layout_width="237dp"
             android:layout_height="49dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="10dp"
             android:ems="10"
             android:hint="@string/email"
             android:inputType="textEmailAddress"
@@ -208,8 +213,7 @@
         <LinearLayout
             android:id="@+id/linearLayout"
             android:layout_width="match_parent"
-            android:layout_height="24dp"
-            android:layout_marginBottom="170dp"
+            android:layout_height="wrap_content"
             android:orientation="horizontal">
 
             <TextView
@@ -232,19 +236,7 @@
                 android:textSize="18sp"
                 android:textStyle="bold" />
         </LinearLayout>
+
+
     </LinearLayout>
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/floatingActionButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="30dp"
-        android:layout_weight="1"
-        android:clickable="true"
-        android:src="@drawable/resignation"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        tools:layout_editor_absoluteX="317dp"
-        tools:layout_editor_absoluteY="584dp" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>

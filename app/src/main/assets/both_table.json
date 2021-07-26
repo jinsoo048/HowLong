@@ -3,128 +3,232 @@
     "id": "1",
     "score": "-10",
     "weak": "종교로 귀의하세요",
-    "strong": "무리해서라도 돈을 쓰세요."
+    "strong": "서로에게 무리해서라도 돈을 쓰세요.",
+    "nameWeak": "완전 천사",
+    "nameStrong": "수행승",
+    "birthWeak": "조직적인 사람이 되기 어려워",
+    "birthStrong": "이상적인 세상을 위하여",
+    "relationship": "매력적이만 포기하는 게 좋은 사이"
   },
   {
     "id": "2",
     "score": "-9",
     "weak": "무의미한 관계를 언제까지",
-    "strong": "확신이 안드시나요? 여행을 떠나보세요"
+    "strong": "확신이 안 드시나요? 여행을 떠나보세요",
+    "nameWeak": "나홀로족",
+    "nameStrong": "역사가",
+    "birthWeak": "이익적, 정치적",
+    "birthStrong": "비전을 제시하는 능력",
+    "relationship": "순수한 관계"
   },
   {
     "id": "3",
     "score": "-8",
-    "weak": "신에게 가까워지고 싶으신가요",
-    "strong": "스킨집이 필요할때"
+    "weak": "신에게 가까워지고 싶으신 가요",
+    "strong": "적극적인 스킨집이 필요할 때",
+    "nameWeak": "완전 새가슴",
+    "nameStrong": "뛰어난 관찰력",
+    "birthWeak": "개인적, 주관적",
+    "birthStrong": "본질을 금방 꿰뚤어봄",
+    "relationship": "함께 있으면 고통"
   },
   {
     "id": "4",
     "score": "-7",
-    "weak": "서로에게 너무 무관심한 커풀",
-    "strong": "너무 편하게만 대하지 말고 부탁하세요"
+    "weak": "서로에게 너무 무관심한 커플",
+    "strong": "너무 편하게만 대하지 말고 부탁하세요",
+    "nameWeak": "겁쟁이",
+    "nameStrong": "커플매니저",
+    "birthWeak": "경계심 왕성",
+    "birthStrong": "사람에 대한 통찰력이",
+    "relationship": "당신은 모태솔로"
   },
   {
     "id": "5",
     "score": "-6",
     "weak": "서로를 더욱 알면 알 수록 지켜야 할 것은 더욱 확실히",
-    "strong": "어설픈 밀당은 그만.솔직하고 진지하면 더욱 효과적"
+    "strong": "서로에게 어설픈 밀당은 이제 그만. 솔직해지면 더 가까워질 수 있어요",
+    "nameWeak": "고집쟁이",
+    "nameStrong": "위험예지능력",
+    "birthWeak": "본능적",
+    "birthStrong": "비평적인 관점의 전략가",
+    "relationship": "우리의 특별함"
   },
   {
     "id": "6",
     "score": "-5",
     "weak": "남자 역할, 여자 역할이 있다고 생각하는 커플이시군요",
-    "strong": "내가 느끼는 감정을 마음껏 표현해야 할때"
+    "strong": "서로에게 느끼는 감정을 마음껏 표현해야 할 때",
+    "nameWeak": "걱정쟁이",
+    "nameStrong": "논리적인 사색가",
+    "birthWeak": "결과보다 과정중시",
+    "birthStrong": "협조를 잘하는 당신",
+    "relationship": "둘 밖에 없어요"
   },
   {
     "id": "7",
     "score": "-4",
     "weak": "서로를 몰라도 너무 모르는 관계",
-    "strong": "좀 더 나를 당당하게 표현하면 좋아요"
+    "strong": "좀 더 나를 당당하게 표현하면 좋아요",
+    "nameWeak": "보수쟁이",
+    "nameStrong": "선의의 옹호자",
+    "birthWeak": "걱정쟁이",
+    "birthStrong": "바로나, 개성",
+    "relationship": "내 말을 잘 따르시는 당신 귀염둥이"
   },
   {
     "id": "8",
     "score": "-3",
-    "weak": "왜 만나는지 모르겠어요",
-    "strong": "먼저 자신을 사랑하세요"
+    "weak": "왜 만나는지 모르겠어야",
+    "strong": "먼저 자신을 사랑하세요",
+    "nameWeak": "경계심쟁이",
+    "nameStrong": "무드 메이커",
+    "birthWeak": "고집쟁이",
+    "birthStrong": "논리적, 상황 적응력이 뛰어남",
+    "relationship": "친구사이"
   },
   {
     "id": "9",
     "score": "-2",
     "weak": "슬슬 지루해지네요",
-    "strong": "포기하면 다시 돌아옵니다."
+    "strong": "포기하면 다시 돌아옵니다.",
+    "nameWeak": "책사",
+    "nameStrong": "열정적인 중재자",
+    "birthWeak": "보수적",
+    "birthStrong": "친절, 현실감으로 타인에게 봉사",
+    "relationship": "속 깊은 사이"
   },
   {
     "id": "10",
     "score": "-1",
     "weak": "말이 너무 없어도 곤란해요",
-    "strong": "남의 시선을 신경쓰지 말고 자신에게 집중하기"
+    "strong": "남의 시선을 신경 쓰지 말고 서로에게 집중하기",
+    "nameWeak": "우유부단",
+    "nameStrong": "청렴 결백한 논리주의자",
+    "birthWeak": "소극적인 편",
+    "birthStrong": "넘 인간적",
+    "relationship": "함께 있으면 좋은 사람"
   },
   {
     "id": "11",
     "score": "0",
     "weak": "남여관계는 물물교환이다",
-    "strong": "서로를 있는 그대로 인정하는데서 시작하는 것"
+    "strong": "서로를 있는 그대로 인정하는 데서 시작하는 것",
+    "nameWeak": "술에 술탄 물에 물탄",
+    "nameStrong": "굿리스너",
+    "birthWeak": "행동이 굼뜸",
+    "birthStrong": "성실하고 온화함",
+    "relationship": "이상적인 상대"
   },
   {
     "id": "12",
     "score": "1",
-    "weak": "말조심해야 겠어요",
-    "strong": "꽃을 선물하세요"
+    "weak": "지혜는 들음에서 생기고 후회는 말함에서 생긴다",
+    "strong": "꽃을 선물하세요",
+    "nameWeak": "덤벙이",
+    "nameStrong": "엄격한 관리자",
+    "birthWeak": "균형, 중심, 판단력, 안정적",
+    "birthStrong": "따뜻한 감성의 겸손함",
+    "relationship": "결혼할 가능성이 있는 상대"
   },
   {
     "id": "13",
     "score": "2",
     "weak": "딱 달라붙어 있고 싶은 기간이 끝나 떨어지고 싶은 커플이 될 수 있어요",
-    "strong": "일부러 친절을 베출려고 마세요.있는 모습 그대로가 좋아요"
+    "strong": "일부러 친절을 베풀려고 마세요. 있는 모습 그대로가 좋아요",
+    "nameWeak": "조급대담한편",
+    "nameStrong": "용감한 수호자",
+    "birthWeak": "주의산만",
+    "birthStrong": "열정적인 관계를 만드는 사람",
+    "relationship": "멋진 커플이네요"
   },
   {
     "id": "14",
     "score": "3",
-    "weak": "너무 이해를 못하는군요",
-    "strong": "사랑받으려고 하지 마세요."
+    "weak": "너무 서로를 이해 못하는 군요",
+    "strong": "사랑받으려고 하지 마세요.",
+    "nameWeak": "가만히 있질 못함",
+    "nameStrong": "새로운 것을 좋아함",
+    "birthWeak": "외로움을 잘 타는 편",
+    "birthStrong": "현실적인 스타일",
+    "relationship": "남들이 부러워하네요"
   },
   {
     "id": "15",
     "score": "4",
-    "weak": "나를 있는 그대로 인정해주면 좋겠는데",
-    "strong": "좀더 솔직해 지면 자유로와집니다."
+    "weak": "서로를 있는 그대로 인정해주면 좋겠는데",
+    "strong": "좀더 솔직해지면 자유로워집니다.",
+    "nameWeak": "유혹에 엄청 약함",
+    "nameStrong": "눈치가 장남 아님",
+    "birthWeak": "스트레스가 많고 자존감이 약함",
+    "birthStrong": "분위기 메이커",
+    "relationship": "패션 감각이 뛰어남"
   },
   {
     "id": "16",
     "score": "5",
-    "weak": "취향이나 취미가 달라서 고민이에요",
-    "strong": "늦은 밤에 상대에게 편지를 써주세요"
+    "weak": "취향이나 취미가 달라서 고민이네요",
+    "strong": "늦은 밤에 상대에게 편지를 써주세요",
+    "nameWeak": "외로움쟁이",
+    "nameStrong": "만능 재주꾼",
+    "birthWeak": "준비성부족, 좀 비인간적",
+    "birthStrong": "다양함을 선호하는 당신",
+    "relationship": "당신 멋져"
   },
   {
     "id": "17",
     "score": "6",
-    "weak": "서로 달라도 너무 달르네요",
-    "strong": "조건을 따지지 말고 딱 두가지만 생각하세요"
+    "weak": "서로 달라도 너무 다르네요",
+    "strong": "조건을 따지지 말고 딱 두가지만 생각하세요",
+    "nameWeak": "호기심천국",
+    "nameStrong": "호기심 많은 예술가",
+    "birthWeak": "성급, 불안, 안정성부족",
+    "birthStrong": "풍부한 상상력으로 새로운 것에 도전",
+    "relationship": "둘 스타일이 어울려요"
   },
   {
     "id": "18",
     "score": "7",
-    "weak": "싸움이 너무 잦아요",
-    "strong": "내 얘기만 주구장창하지 말고 귀 기울이고 집중하는 것이 최선"
+    "weak": "우리 싸움이 너무 잦아요",
+    "strong": "말로 베인 상처는 칼로 베인 상처보다 더욱더 아프다",
+    "nameWeak": "주의산만",
+    "nameStrong": "모험을 즐기는 비지니스맨",
+    "birthWeak": "덤벙이",
+    "birthStrong": "객관적, 합리적",
+    "relationship": "열정적인 연애를 할 수 있어요"
   },
   {
     "id": "19",
     "score": "8",
-    "weak": "말로 상대에게 깊은 상처를 남기셨군요",
-    "strong": "무조건 비세요"
+    "weak": "말로 서로에게 깊은 상처를 남기셨군요",
+    "strong": "누군가는 무조건 비세요",
+    "nameWeak": "사고뭉치",
+    "nameStrong": "이상하고 새로움을 즐겨",
+    "birthWeak": "자기 주장이 강함",
+    "birthStrong": "노력, 에너지, 활동성",
+    "relationship": "웬 지 거북한 관계"
   },
   {
     "id": "20",
     "score": "9",
-    "weak": "절대 하지 말아야 하는 것을 하고 말았네요",
-    "strong": "마음에 여유가 필요하군요.잠시 떨어져 있는 것도 방법"
+    "weak": "절대 하지 말아야 할 것을 하고 말았네요",
+    "strong": "마음에 여유가 필요하군요. 잠시 떨어져 있는 것도 방법",
+    "nameWeak": "장난꾸러기",
+    "nameStrong": "아티스트",
+    "birthWeak": "타협이라고는 모름",
+    "birthStrong": "한번 시작한 일은 끝까지",
+    "relationship": "육체적인(?) 관계"
   },
   {
     "id": "21",
     "score": "10",
     "weak": "맨날 싸우지 말고 헤어지세요",
-    "strong": "이쯤에서 절에 들어가세요"
+    "strong": "이쯤에서 절에 들어가세요",
+    "nameWeak": "전사",
+    "nameStrong": "자유로운 영혼의 연애인",
+    "birthWeak": "원리원칙",
+    "birthStrong": "열정적",
+    "relationship": "매력적이만 포기하는 게 좋은 사이"
   }
 ]
-
 

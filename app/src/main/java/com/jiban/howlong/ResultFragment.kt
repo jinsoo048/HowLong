@@ -17,7 +17,10 @@ import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class ResultFragment : androidx.fragment.app.Fragment() {
-    private lateinit var binding: FragmentResultBinding
+
+    private var _binding: FragmentResultBinding? = null
+    private val binding get() = _binding !!
+
     private val maleViewModel: MaleViewModel by viewModels()
     private val femaleViewModel: FemaleViewModel by viewModels()
     private val bothViewModel: BothViewModel by viewModels()
@@ -30,7 +33,8 @@ class ResultFragment : androidx.fragment.app.Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentResultBinding.inflate(layoutInflater)
+        //binding = FragmentResultBinding.inflate(layoutInflater)
+        _binding = FragmentResultBinding.inflate(inflater, container, false)
 
         var myScore: Int = 0
         var yourScore: Int = 0
@@ -50,7 +54,7 @@ class ResultFragment : androidx.fragment.app.Fragment() {
             binding.mySumTv.text = (myScore * 100 / 10).toString()
             binding.mySumRb.rating = (myScore.toFloat() + 10) / 2
 
-            binding.yourSumTv.text = (yourScore * 100 / 10).toString()
+            binding.yourSumTv.text = (yourScore * 100 / 15).toString()
             binding.yourSumRb.rating = (yourScore.toFloat() + 10) / 2
 
             binding.totalSumTv.text = (totalScore * 100 / 10).toString()
@@ -58,10 +62,16 @@ class ResultFragment : androidx.fragment.app.Fragment() {
         })
 
         //advice
-
         myScore = dataShareViewModel.data.value?.mySum !!.toInt()
         yourScore = dataShareViewModel.data.value?.yourSum !!.toInt()
         totalScore = dataShareViewModel.data.value?.totalSum !!.toInt()
+
+        // -10 < score < 10
+        if (totalScore > 10) {
+            totalScore = 10
+        } else if (totalScore < - 10) {
+            totalScore = - 10
+        }
 
         maleViewModel.getMale(myScore).observe(viewLifecycleOwner, Observer {
             binding.myWeakTv.text = it.weak
@@ -77,6 +87,11 @@ class ResultFragment : androidx.fragment.app.Fragment() {
         })
 
         return binding.root
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 
 }

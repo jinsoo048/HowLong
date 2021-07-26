@@ -3,7 +3,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginTop="50dp"
     android:orientation="vertical">
 
     <com.google.android.material.card.MaterialCardView
@@ -24,15 +23,15 @@
                 android:id="@+id/mySumLl"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
                 android:orientation="horizontal">
 
                 <TextView
                     android:id="@+id/mySumHeaderTv"
-                    android:layout_width="80dp"
+                    android:layout_width="130dp"
                     android:layout_height="wrap_content"
                     android:padding="@dimen/small_padding"
                     android:text="@string/my_strength_sum"
+                    android:gravity="center_horizontal"
                     android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium" />
 
                 <RatingBar
@@ -53,13 +52,14 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:layout_width="50dp"
+                    android:layout_width="70dp"
                     android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
                     android:text="Name" />
 
                 <TextView
                     android:id="@+id/mySumTv"
-                    android:layout_width="80dp"
+                    android:layout_width="60dp"
                     android:layout_height="wrap_content"
                     android:gravity="center_horizontal"
                     android:hint="Mine" />
@@ -113,13 +113,14 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:layout_width="50dp"
+                    android:layout_width="70dp"
                     android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
                     android:text="Birth" />
 
                 <TextView
                     android:id="@+id/myBirthSumTv"
-                    android:layout_width="80dp"
+                    android:layout_width="60dp"
                     android:layout_height="wrap_content"
                     android:gravity="center_horizontal"
                     android:hint="Mine" />
@@ -185,15 +186,15 @@
                 android:id="@+id/yourSumLl"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
                 android:orientation="horizontal">
 
                 <TextView
                     android:id="@+id/yourSumHeaderTv"
-                    android:layout_width="80dp"
+                    android:layout_width="130dp"
                     android:layout_height="wrap_content"
                     android:padding="@dimen/small_padding"
                     android:text="@string/your_strength_sum"
+                    android:gravity="center_horizontal"
                     android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium" />
 
 
@@ -215,13 +216,14 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:layout_width="50dp"
+                    android:layout_width="70dp"
                     android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
                     android:text="Name" />
 
                 <TextView
                     android:id="@+id/yourSumTv"
-                    android:layout_width="80dp"
+                    android:layout_width="60dp"
                     android:layout_height="wrap_content"
                     android:gravity="center_horizontal"
                     android:hint="Yours" />
@@ -273,13 +275,14 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:layout_width="50dp"
+                    android:layout_width="70dp"
                     android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
                     android:text="Birth" />
 
                 <TextView
                     android:id="@+id/yourBirthSumTv"
-                    android:layout_width="80dp"
+                    android:layout_width="60dp"
                     android:layout_height="wrap_content"
                     android:gravity="center_horizontal"
                     android:hint="Yours" />
@@ -344,15 +347,15 @@
                 android:id="@+id/bothSumLl"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
                 android:orientation="horizontal">
 
                 <TextView
                     android:id="@+id/bothSumHeaderTv"
-                    android:layout_width="80dp"
+                    android:layout_width="130dp"
                     android:layout_height="wrap_content"
                     android:padding="@dimen/small_padding"
                     android:text="@string/total_strength_sum"
+                    android:gravity="center_horizontal"
                     android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium" />
 
                 <RatingBar
@@ -374,13 +377,14 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:layout_width="50dp"
+                    android:layout_width="70dp"
                     android:layout_height="wrap_content"
-                    android:text="Name" />
+                    android:gravity="center_horizontal"
+                    android:text="Final" />
 
                 <TextView
                     android:id="@+id/totalSumTv"
-                    android:layout_width="80dp"
+                    android:layout_width="60dp"
                     android:layout_height="wrap_content"
                     android:gravity="center_horizontal"
                     android:hint="Both" />
@@ -432,13 +436,14 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:layout_width="50dp"
+                    android:layout_width="70dp"
                     android:layout_height="wrap_content"
-                    android:text="Birth" />
+                    android:gravity="center_horizontal"
+                    android:text="Relation" />
 
                 <TextView
                     android:id="@+id/totalBirthSumTv"
-                    android:layout_width="80dp"
+                    android:layout_width="60dp"
                     android:layout_height="wrap_content"
                     android:gravity="center_horizontal"
                     android:hint="Both" />
@@ -456,31 +461,13 @@
                         <TextView
                             android:layout_width="20dp"
                             android:layout_height="wrap_content"
-                            android:text="(?)" />
-
-                        <TextView
-                            android:id="@+id/bothBirthWeakTv"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:hint="weak" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:layout_width="20dp"
-                            android:layout_height="wrap_content"
                             android:text="(!)" />
 
                         <TextView
-                            android:id="@+id/bothBirthStrongTv"
+                            android:id="@+id/relationShipTv"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:hint="strong" />
-
+                            android:hint="relationShip" />
                     </LinearLayout>
 
                 </LinearLayout>
@@ -491,4 +478,33 @@
 
     </com.google.android.material.card.MaterialCardView>
 
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginBottom="10dp"
+        app:srcCompat="@drawable/ic_baseline_access_time_filled_24" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/expectedTimeTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:hint="00"
+            android:textSize="60sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="년"
+            android:textSize="60sp" />
+
+    </LinearLayout>
 </LinearLayout>

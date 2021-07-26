@@ -25,4 +25,5 @@ class OpenFragment : Fragment() {
         super.onDestroyView()
         _binding = null
     }
+
 }

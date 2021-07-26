@@ -1,6 +1,5 @@
 package com.jiban.howlong
 
-import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -48,6 +47,27 @@ class RegisterEmailFragment : Fragment() {
     ): View? {
         _binding = FragmentRegisterEmailBinding.inflate(inflater, container, false)
 
+        // Initialize Firebase Auth
+        // initialized
+        auth = FirebaseAuth.getInstance()
+        //already login go to the mainFragment
+        val currentUser = auth.currentUser
+        if (currentUser != null) {
+            val currentUser = auth.currentUser
+            if (currentUser != null) {
+                Toast.makeText(
+                    context,
+                    "이미 가입되어 계십니다.^^",
+                    Toast.LENGTH_SHORT
+                ).show()
+
+                val fragment = MainFragment()
+                activity?.supportFragmentManager?.beginTransaction()
+                    ?.replace(R.id.fragmentCv, fragment, "MainFragment")
+                    ?.commit()
+            }
+        }
+
         // load autocomplete list
         val gendList = resources.getStringArray(R.array.gend_menu)
         val yearList = resources.getStringArray(R.array.year_menu)
@@ -90,8 +110,7 @@ class RegisterEmailFragment : Fragment() {
             myTime = (timeAdapter?.getItem(position) ?: "")
             Toast.makeText(context, myTime + "을 선택하셨습니다!", Toast.LENGTH_SHORT).show()
         }
-
-        //auth
+        // initialized
         auth = FirebaseAuth.getInstance()
 
         binding.registerBtn.setOnClickListener {
@@ -117,8 +136,11 @@ class RegisterEmailFragment : Fragment() {
                         "Registration is successful!",
                         Toast.LENGTH_LONG
                     ).show()
-                    val intent = Intent(activity, MainActivity::class.java)
-                    activity?.startActivity(intent)
+
+                    val fragment = LoginEmailFragment()
+                    activity?.supportFragmentManager?.beginTransaction()
+                        ?.replace(R.id.fragmentCv, fragment, "loginEmailFragment")
+                        ?.commit()
                 }
             }.addOnFailureListener { exception ->
                 Toast.makeText(
@@ -128,7 +150,6 @@ class RegisterEmailFragment : Fragment() {
                 ).show()
 
             }
-
             // register profile
             val db = Firebase.firestore
             // Create a new user with a first and last name
@@ -140,7 +161,6 @@ class RegisterEmailFragment : Fragment() {
                 ).show()
                 return@setOnClickListener
             }
-
             val user = hashMapOf(
                 "email" to myEmail,
                 "name" to myName,
@@ -151,7 +171,7 @@ class RegisterEmailFragment : Fragment() {
                 "birthDay" to myDay,
                 "birthTime" to myTime
             )
-// Add a new document with a generated ID
+            // Add a new document with a generated ID
             db.collection("users").document(myEmail)
                 .set(user)
                 .addOnSuccessListener {
@@ -168,6 +188,7 @@ class RegisterEmailFragment : Fragment() {
                 ?.replace(R.id.fragmentCv, fragment, "loginEmailFragment")
                 ?.commit()
         }
+
         val view = binding.root
         return view
     }

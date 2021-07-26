@@ -39,8 +39,25 @@ class LoginEmailFragment : Fragment() {
     ): View? {
         _binding = FragmentLoginEmailBinding.inflate(inflater, container, false)
 
-        // context?.let { FirebaseApp.initializeApp(it) }
+        // Initialize Firebase Auth
+        // initialized
         auth = FirebaseAuth.getInstance()
+
+        //already login go to the mainFragment
+        val currentUser = auth.currentUser
+        if (currentUser != null) {
+            Toast.makeText(
+                context,
+                "이미 로그인 되어 계십니다.^^",
+                Toast.LENGTH_SHORT
+            ).show()
+
+            val fragment = MainFragment()
+            activity?.supportFragmentManager?.beginTransaction()
+                ?.replace(R.id.fragmentCv, fragment, "MainFragment")
+                ?.commit()
+        }
+        //auth = Firebase.auth
 
         //enter control
         val editTexts: ArrayList<EditText> = ArrayList()

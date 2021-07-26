@@ -26,8 +26,10 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class AllCheckFragment : Fragment() {
 
+    private var _binding: FragmentAllCheckBinding? = null
+    private val binding get() = _binding !!
+
     private lateinit var auth: FirebaseAuth
-    private lateinit var binding: FragmentAllCheckBinding
 
     private var currentUser: String? = null
 
@@ -74,14 +76,11 @@ class AllCheckFragment : Fragment() {
     override fun onStart() {
         super.onStart()
         // Check if user is signed in (non-null) and update UI accordingly.
-        //auth
-        auth = FirebaseAuth.getInstance()
-        currentUser = auth.currentUser.toString()
+        val currentUser = auth.currentUser
         if (currentUser != null) {
             //reload();
             fragmentManager?.beginTransaction()?.detach(this)?.attach(this)?.commit()
         }
-
     }
 
     override fun onCreateView(
@@ -90,7 +89,8 @@ class AllCheckFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         //starting
-        binding = FragmentAllCheckBinding.inflate(layoutInflater)
+        //binding = FragmentAllCheckBinding.inflate(layoutInflater)
+        _binding = FragmentAllCheckBinding.inflate(inflater, container, false)
 
         dataShareViewModel = activity?.run {
             ViewModelProviders.of(this).get(DataShareViewModel::class.java)
@@ -101,6 +101,9 @@ class AllCheckFragment : Fragment() {
         } ?: throw Exception("Invalid Activity")
 
         //get user email address
+        // initialized
+        auth = FirebaseAuth.getInstance()
+
         val currentUser = Firebase.auth.currentUser
         var userEmail: String? = null
         userEmail = currentUser !!.email
@@ -110,7 +113,7 @@ class AllCheckFragment : Fragment() {
         val docRef1 = db.collection("users").document(userEmail !!)
         docRef1.get()
             .addOnSuccessListener { document ->
-                if (document != null) {
+                if (document.exists()) {
                     myName = document.data !!.getValue("name") as String
                     myYear = document.data !!.getValue("birthYear") as String
                     myMonth = document.data !!.getValue("birthMonth") as String
@@ -127,7 +130,7 @@ class AllCheckFragment : Fragment() {
         val docRef2 = db.collection("lover").document(userEmail)
         docRef2.get()
             .addOnSuccessListener { document ->
-                if (document != null) {
+                if (document.exists()) {
                     yourName = document.data !!.getValue("loverName") as String
                     yourYear = document.data !!.getValue("birthYear") as String
                     yourMonth = document.data !!.getValue("birthMonth") as String
@@ -217,7 +220,6 @@ class AllCheckFragment : Fragment() {
         }
     }
 
-
     private fun search(query: String, switchFrag: Int) {
         characterViewModel.getMyCharacter(query).observe(viewLifecycleOwner, Observer {
             if (switchFrag == 0) {
@@ -267,5 +269,10 @@ class AllCheckFragment : Fragment() {
         activity?.supportFragmentManager?.beginTransaction()
             ?.replace(R.id.allResultFl, fragment, "allCheckResultFragment")
             ?.commit()
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }

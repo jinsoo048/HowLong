@@ -232,6 +232,12 @@
     "character": "ㅘ",
     "strength": "0",
     "kind": "vow"
+  },
+  {
+    "id": "40",
+    "character": "ㅝ",
+    "strength": "-1",
+    "kind": "vow"
   }
 ]
 

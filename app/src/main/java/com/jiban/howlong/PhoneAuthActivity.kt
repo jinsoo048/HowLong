@@ -6,8 +6,6 @@ import android.util.Log
 import com.google.firebase.FirebaseException
 import com.google.firebase.FirebaseTooManyRequestsException
 import com.google.firebase.auth.*
-import com.google.firebase.auth.ktx.auth
-import com.google.firebase.ktx.Firebase
 import java.util.concurrent.TimeUnit
 
 class PhoneAuthActivity : Activity() {
@@ -25,7 +23,9 @@ class PhoneAuthActivity : Activity() {
 
         // [START initialize_auth]
         // Initialize Firebase Auth
-        auth = Firebase.auth
+        //auth = Firebase.auth
+        // initialized
+        auth = FirebaseAuth.getInstance()
         // [END initialize_auth]
 
         // Initialize phone auth callbacks
@@ -146,4 +146,5 @@ class PhoneAuthActivity : Activity() {
     companion object {
         private const val TAG = "PhoneAuthActivity"
     }
+
 }

@@ -5,6 +5,8 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.activity.addCallback
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.google.firebase.auth.FirebaseAuth
@@ -19,10 +21,10 @@ import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class MainFragment : Fragment() {
+    private var _binding: FragmentMainBinding? = null
+    private val binding get() = _binding !!
 
     private lateinit var auth: FirebaseAuth
-    private lateinit var binding: FragmentMainBinding
-
     private var currentUser: String? = null
 
     private var myEmail: String? = null
@@ -63,14 +65,11 @@ class MainFragment : Fragment() {
     override fun onStart() {
         super.onStart()
         // Check if user is signed in (non-null) and update UI accordingly.
-        //auth
-        auth = FirebaseAuth.getInstance()
-        currentUser = auth.currentUser.toString()
+        val currentUser = auth.currentUser
         if (currentUser != null) {
             //reload();
             fragmentManager?.beginTransaction()?.detach(this)?.attach(this)?.commit()
         }
-
     }
 
     override fun onCreateView(
@@ -78,85 +77,73 @@ class MainFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentMainBinding.inflate(layoutInflater)
+        //binding = FragmentMainBinding.inflate(layoutInflater)
+        _binding = FragmentMainBinding.inflate(inflater, container, false)
 
         //get user email address
+        auth = FirebaseAuth.getInstance()
         val currentUser = Firebase.auth.currentUser
-        var userEmail: String? = null
-        userEmail = currentUser !!.email
 
-        val db = Firebase.firestore
 
-        db.collection("users")
-            .whereEqualTo("users", userEmail)
-            .get()
-            .addOnSuccessListener { documents ->
-                for (document in documents) {
-                    Log.d("JJS DB", "${document.id} => ${document.data}")
+        //already login go to the mainFragment
+        //already login go to the mainFragment
+        if (currentUser != null) {
+            //getting the email
+            var userEmail: String? = null
+            userEmail = currentUser.email
+
+            //db connection
+            val db = Firebase.firestore
+
+            val docRef1 = db.collection("users").document(userEmail !!)
+            docRef1.get()
+                .addOnSuccessListener { document ->
+                    if (document.exists()) {
+                        myName = document.data !!.getValue("name") as String
+                        myYear = document.data !!.getValue("birthYear") as String
+                        myMonth = document.data !!.getValue("birthMonth") as String
+                        myDay = document.data !!.getValue("birthDay") as String
+                        myTime = document.data !!.getValue("birthTime") as String
+
+                        binding.myNameTv.text = myName
+                        binding.myYearTv.text = myYear
+                        binding.myMonthTv.text = myMonth
+                        binding.myDayTv.text = myDay
+                        binding.myTimeTv.text = myTime
+                    } else {
+                        Log.d("JJS", "No such document")
+                    }
+                }.addOnFailureListener { exception ->
+                    Log.d("JJS", "get failed with ", exception)
                 }
-            }
-            .addOnFailureListener { exception ->
-                Log.w("JJS DB", "Error getting documents: ", exception)
-            }
 
-        val docRef = db.collection("users").document(userEmail !!)
-        docRef.get()
-            .addOnSuccessListener { document ->
-                if (document != null) {
-                    Log.d("JJS DB", "DocumentSnapshot data: ${document.data}")
-                } else {
-                    Log.d("JJS DB", "No such document")
+            //check the lover be there or not
+            val docRef2 = db.collection("lover").document(userEmail.toString())
+                .get()
+                .addOnSuccessListener { document ->
+                    if (document.exists()) {
+                        Log.d("JJS", "${document.id} => ${document.data}")
+                        yourName = document.data !!.getValue("loverName") as String
+                        yourYear = document.data !!.getValue("birthYear") as String
+                        yourMonth = document.data !!.getValue("birthMonth") as String
+                        yourDay = document.data !!.getValue("birthDay") as String
+                        yourTime = document.data !!.getValue("birthTime") as String
+
+                        binding.yourNameTv.text = yourName
+                        binding.yourYearTv.text = yourYear
+                        binding.yourMonthTv.text = yourMonth
+                        binding.yourDayTv.text = yourDay
+                        binding.yourTimeTv.text = yourTime
+                    } else {
+                        Log.d("JJS", "No such document")
+                    }
                 }
-            }
-            .addOnFailureListener { exception ->
-                Log.d("JJS DB", "get failed with ", exception)
-            }
-
-
-        val docRef1 = db.collection("users").document(userEmail)
-        docRef1.get()
-            .addOnSuccessListener { document ->
-                if (document != null) {
-                    myName = document.data !!.getValue("name") as String
-                    myYear = document.data !!.getValue("birthYear") as String
-                    myMonth = document.data !!.getValue("birthMonth") as String
-                    myDay = document.data !!.getValue("birthDay") as String
-                    myTime = document.data !!.getValue("birthTime") as String
-
-                    binding.myNameTv.text = myName
-                    binding.myYearTv.text = myYear
-                    binding.myMonthTv.text = myMonth
-                    binding.myDayTv.text = myDay
-                    binding.myTimeTv.text = myTime
-                } else {
-                    Log.d("JJS DB", "No such document")
+                .addOnFailureListener { exception ->
+                    Log.w("JJS", "Error getting documents: ", exception)
                 }
-            }
-            .addOnFailureListener { exception ->
-                Log.d("JJS DB", "get failed with ", exception)
-            }
-        val docRef2 = db.collection("lover").document(userEmail)
-        docRef2.get()
-            .addOnSuccessListener { document ->
-                if (document != null) {
-                    yourName = document.data !!.getValue("loverName") as String
-                    yourYear = document.data !!.getValue("birthYear") as String
-                    yourMonth = document.data !!.getValue("birthMonth") as String
-                    yourDay = document.data !!.getValue("birthDay") as String
-                    yourTime = document.data !!.getValue("birthTime") as String
 
-                    binding.yourNameTv.text = yourName
-                    binding.yourYearTv.text = yourYear
-                    binding.yourMonthTv.text = yourMonth
-                    binding.yourDayTv.text = yourDay
-                    binding.yourTimeTv.text = yourTime
-                } else {
-                    Log.d("JJS DB", "No such document")
-                }
-            }
-            .addOnFailureListener { exception ->
-                Log.d("JJS DB", "get failed with ", exception)
-            }
+        }
+
         return binding.root
     }
 
@@ -164,11 +151,39 @@ class MainFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.allBt.setOnClickListener {
-            val fragment: Fragment = AllCheckFragment()
+            if (yourName != null) {
+                val fragment: Fragment = AllCheckFragment()
+                activity?.supportFragmentManager?.beginTransaction()
+                    ?.replace(R.id.fragmentCv, fragment, "allCheckFragment")
+                    ?.commit()
+            } else {
+                val fragment: Fragment = AddLoverFragment()
+                activity?.supportFragmentManager?.beginTransaction()
+                    ?.replace(R.id.fragmentCv, fragment, "addLoverFragment")
+                    ?.commit()
+            }
+
+        }
+
+        binding.resignFb.setOnClickListener {
+            Toast.makeText(context, "Resign OR Change", Toast.LENGTH_SHORT).show()
+
+            val fragment = ResignChangeFragment()
             activity?.supportFragmentManager?.beginTransaction()
-                ?.replace(R.id.fragmentCv, fragment, "allCheckFragment")
+                ?.replace(R.id.fragmentCv, fragment, "resignOrChangeFragment")
                 ?.commit()
+
+        }
+
+        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner) {
+            _binding = null
         }
 
     }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
+
 }

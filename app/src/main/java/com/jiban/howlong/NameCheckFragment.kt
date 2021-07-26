@@ -109,6 +109,11 @@ class NameCheckFragment : Fragment() {
             ?.replace(R.id.sumFl, fragment, "fragmnetId")
             ?.commit()
     }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
 }
 
 

@@ -136,6 +136,8 @@
     <string name="loverAdd">ADD</string>
     <string name="content_description_home">home</string>
     <string name="go">Go!</string>
+    <string name="resign">Resign</string>
+    <string name="Goodbye">Goodbye</string>
 
 
     //Menu Bar Strings
