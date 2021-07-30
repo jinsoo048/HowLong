@@ -9,7 +9,7 @@
     <string name="TimeMenu">Time</string>
     <string name="GenderMenu">Gender</string>
     <string name="login">login</string>
-    <string name="register">register</string>
+    <string name="register">가입신청</string>
     <string name="content_description_login">content_description_login</string>
     <string name="content_description_register">content_description_register</string>
     <string name="HowLong">Forever</string>
@@ -136,8 +136,20 @@
     <string name="loverAdd">ADD</string>
     <string name="content_description_home">home</string>
     <string name="go">Go!</string>
-    <string name="resign">Resign</string>
+    <string name="resign">탈퇴변경</string>
     <string name="Goodbye">Goodbye</string>
+    <string name="birth">출생비밀</string>
+    <string name="name_meaning">이름비밀</string>
+    <string name="final_name">이름궁합</string>
+    <string name="relation">출생궁합</string>
+    <string name="maleName">Male Name</string>
+    <string name="femaleName">Female Name</string>
+    <string name="mail_start_icon">mailStartIcon</string>
+    <string name="female_start_icon">femaleStartIcon</string>
+    <string name="male_start_icon">maleStartIcon</string>
+    <string name="title">사랑의 주문</string>
+    <string name="content_description_resign">resign</string>
+    <string name="fishLogo">fishLogo</string>
 
 
     //Menu Bar Strings

@@ -30,7 +30,7 @@ import com.jiban.howlong.workers.SeedDatabaseWorker
 @Database(
     entities = [Character::class, Gender::class, Number::class, Score::class, Sum::class, Male::class, Female::class, Both::class],
     version = 2,
-    exportSchema = false
+    exportSchema = true
 )
 @TypeConverters(Converters::class)
 abstract class AppDatabase : RoomDatabase() {

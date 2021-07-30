@@ -41,10 +41,10 @@ class LoginEmailFragment : Fragment() {
 
         // Initialize Firebase Auth
         // initialized
-        auth = FirebaseAuth.getInstance()
-
+        auth = Firebase.auth
         //already login go to the mainFragment
         val currentUser = auth.currentUser
+        // db user check
         if (currentUser != null) {
             Toast.makeText(
                 context,
@@ -57,8 +57,6 @@ class LoginEmailFragment : Fragment() {
                 ?.replace(R.id.fragmentCv, fragment, "MainFragment")
                 ?.commit()
         }
-        //auth = Firebase.auth
-
         //enter control
         val editTexts: ArrayList<EditText> = ArrayList()
 
@@ -78,45 +76,59 @@ class LoginEmailFragment : Fragment() {
                 return@setOnClickListener
             }
 
-            auth.signInWithEmailAndPassword(myEmail, myPassword).addOnCompleteListener { task ->
-                if (task.isSuccessful) {
+            auth.signInWithEmailAndPassword(myEmail, myPassword)
+                .addOnCompleteListener { task ->
                     if (task.isSuccessful) {
-                        Toast.makeText(context, "Login is successful!", Toast.LENGTH_LONG)
-                            .show()
-                        val user = auth.currentUser
-                        updateUI(user)
+                        if (task.isSuccessful) {
+                            Toast.makeText(
+                                context,
+                                "Login is successful!",
+                                Toast.LENGTH_LONG
+                            )
+                                .show()
+                            val user = auth.currentUser
+                            updateUI(user)
 
-                        //get user email address
-                        val currentUser = Firebase.auth.currentUser
-                        // var userEmail: String? = null
-                        var userEmail = currentUser !!.email
+                            //get user email address
+                            val currentUser = Firebase.auth.currentUser
+                            // var userEmail: String? = null
+                            var userEmail = currentUser !!.email
 
-                        // connect to db
-                        val db = Firebase.firestore
-                        if (userEmail != null) {
-                            val docRef1 = db.collection("lover").document(userEmail)
-                            docRef1.get()
-                                .addOnSuccessListener { document ->
-                                    if (document != null) {
-                                        val fragment = MainFragment()
+                            // connect to db
+                            val db = Firebase.firestore
+                            if (userEmail != null) {
+                                val docRef1 = db.collection("lover").document(userEmail)
+                                docRef1.get()
+                                    .addOnSuccessListener { document ->
+                                        if (document != null) {
+                                            val fragment = MainFragment()
+                                            activity?.supportFragmentManager?.beginTransaction()
+                                                ?.replace(
+                                                    R.id.fragmentCv,
+                                                    fragment,
+                                                    "MainFragment"
+                                                )
+                                                ?.commit()
+                                        }
+                                    }
+                                    .addOnFailureListener {
+                                        val fragment = AddLoverFragment()
                                         activity?.supportFragmentManager?.beginTransaction()
-                                            ?.replace(R.id.fragmentCv, fragment, "MainFragment")
+                                            ?.replace(
+                                                R.id.fragmentCv,
+                                                fragment,
+                                                "AddLoverFragment"
+                                            )
                                             ?.commit()
                                     }
-                                }
-                                .addOnFailureListener {
-                                    val fragment = AddLoverFragment()
-                                    activity?.supportFragmentManager?.beginTransaction()
-                                        ?.replace(R.id.fragmentCv, fragment, "AddLoverFragment")
-                                        ?.commit()
-                                }
+                            }
                         }
                     }
+                }.addOnFailureListener { exception ->
+                    Toast.makeText(context, exception.localizedMessage, Toast.LENGTH_LONG)
+                        .show()
+                    updateUI(null)
                 }
-            }.addOnFailureListener { exception ->
-                Toast.makeText(context, exception.localizedMessage, Toast.LENGTH_LONG).show()
-                updateUI(null)
-            }
         }
 
         binding.registerTv.setOnClickListener {
@@ -144,5 +156,4 @@ class LoginEmailFragment : Fragment() {
         super.onDestroyView()
         _binding = null
     }
-
 }

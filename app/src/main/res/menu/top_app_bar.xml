@@ -22,4 +22,11 @@
         android:icon="@drawable/register1"
         android:title="@string/register"
         app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/resign"
+        android:contentDescription="@string/content_description_resign"
+        android:icon="@drawable/resignation"
+        android:title="@string/resign"
+        app:showAsAction="ifRoom" />
 </menu>

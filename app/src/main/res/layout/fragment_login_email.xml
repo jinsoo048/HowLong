@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
         android:contentDescription="@string/jLogo"
-        android:src="@drawable/ic_j_m" />
+        android:src="@mipmap/ic_love2_foreground" />
 
     <EditText
         android:id="@+id/editTextEmailAddress"

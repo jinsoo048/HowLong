@@ -22,9 +22,9 @@ class AddLoverFragment : Fragment() {
 
     private lateinit var auth: FirebaseAuth
 
-    private var currentUser: String? = null
+    //private var currentUser: String? = null
 
-    private var myEmail: String? = null
+    //private var myEmail: String? = null
     private var loverName: String? = null
 
     //Birth Information
@@ -99,9 +99,7 @@ class AddLoverFragment : Fragment() {
             Toast.makeText(context, myTime + "을 선택하셨습니다!", Toast.LENGTH_SHORT).show()
         }
 
-
         binding.addBtn.setOnClickListener {
-
             //get user email address
             val currentUser = Firebase.auth.currentUser
             var userEmail: String? = null
@@ -143,7 +141,7 @@ class AddLoverFragment : Fragment() {
                 "birthDay" to myDay,
                 "birthTime" to myTime
             )
-// Add a new document with a generated ID
+            // Add a new document with a generated ID
             if (userEmail != null) {
                 db.collection("lover").document(userEmail)
                     .set(lover)
@@ -165,7 +163,6 @@ class AddLoverFragment : Fragment() {
                     }
             }
         }
-
         return binding.root
     }
 
@@ -173,5 +170,4 @@ class AddLoverFragment : Fragment() {
         super.onDestroyView()
         _binding = null
     }
-
 }

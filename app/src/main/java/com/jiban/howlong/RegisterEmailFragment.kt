@@ -67,7 +67,6 @@ class RegisterEmailFragment : Fragment() {
                     ?.commit()
             }
         }
-
         // load autocomplete list
         val gendList = resources.getStringArray(R.array.gend_menu)
         val yearList = resources.getStringArray(R.array.year_menu)

@@ -15,7 +15,6 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     //private lateinit var auth: FirebaseAuth
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -38,7 +37,6 @@ class MainActivity : AppCompatActivity() {
                     transaction.replace(R.id.fragmentCv, fragment)
                     transaction.addToBackStack(null)
                     transaction.commit()
-
                     true
                 }
                 R.id.login -> {
@@ -52,6 +50,17 @@ class MainActivity : AppCompatActivity() {
 
                 R.id.register -> {
                     val fragment: Fragment = RegisterEmailFragment()
+                    val transaction: FragmentTransaction = supportFragmentManager.beginTransaction()
+                    transaction.replace(R.id.fragmentCv, fragment)
+                    transaction.addToBackStack(null)
+                    transaction.commit()
+                    true
+                }
+
+                R.id.resign -> {
+                    //Toast.makeText(context, "탈퇴,변경,로그아웃 옵션으로 이동합니다.", Toast.LENGTH_SHORT).show()
+
+                    val fragment = ResignChangeFragment()
                     val transaction: FragmentTransaction = supportFragmentManager.beginTransaction()
                     transaction.replace(R.id.fragmentCv, fragment)
                     transaction.addToBackStack(null)

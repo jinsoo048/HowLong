@@ -4,6 +4,8 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import android.widget.Toast.LENGTH_LONG
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
@@ -39,6 +41,12 @@ class NameCheckFragment : Fragment() {
     ): View? {
 
         _binding = FragmentNameCheckBinding.inflate(inflater, container, false)
+
+        //opening
+        val fragment: Fragment = OpenFragment()
+        activity?.supportFragmentManager?.beginTransaction()
+            ?.replace(R.id.sumFl, fragment, "OpenFragment")
+            ?.commit()
 
         dataShareViewModel = activity?.run {
             ViewModelProviders.of(this).get(DataShareViewModel::class.java)
@@ -89,14 +97,47 @@ class NameCheckFragment : Fragment() {
     private fun search(query: String, switchFrag: Int) {
         characterViewModel.getMyCharacter(query).observe(viewLifecycleOwner, Observer {
             if (switchFrag == 0) {
-                myStrengthSum += it.strength.toInt()
+                if (it != null) {
+                    if (it.strength != null) {
+                        myStrengthSum += it.strength.toInt()
+                    } else {
+                        Toast.makeText(
+                            context,
+                            "Whoops looks like something went wrong!",
+                            LENGTH_LONG
+                        )
+                    }
+                } else {
+                    android.widget.Toast.makeText(
+                        context,
+                        "Whoops looks like something went wrong!",
+                        android.widget.Toast.LENGTH_LONG
+                    )
+                }
+
+
             } else if (switchFrag == 1) {
-                yourStrengthSum += it.strength.toInt()
+                if (it != null) {
+                    if (it.strength != null) {
+                        yourStrengthSum += it.strength.toInt()
+                    } else {
+                        Toast.makeText(
+                            context,
+                            "Whoops looks like something went wrong!",
+                            LENGTH_LONG
+                        )
+                    }
+                } else {
+                    android.widget.Toast.makeText(
+                        context,
+                        "Whoops looks like something went wrong!",
+                        android.widget.Toast.LENGTH_LONG
+                    )
+                }
             }
             strengthSum.mySum = myStrengthSum
             strengthSum.yourSum = yourStrengthSum
             strengthSum.totalSum = myStrengthSum + yourStrengthSum
-
             saveSum()
         })
     }

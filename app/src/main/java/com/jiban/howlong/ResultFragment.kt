@@ -20,11 +20,9 @@ class ResultFragment : androidx.fragment.app.Fragment() {
 
     private var _binding: FragmentResultBinding? = null
     private val binding get() = _binding !!
-
     private val maleViewModel: MaleViewModel by viewModels()
     private val femaleViewModel: FemaleViewModel by viewModels()
     private val bothViewModel: BothViewModel by viewModels()
-
     private lateinit var dataShareViewModel: DataShareViewModel
 
     @SuppressLint("SetTextI18n")
@@ -53,12 +51,10 @@ class ResultFragment : androidx.fragment.app.Fragment() {
             //rating bar
             binding.mySumTv.text = (myScore * 100 / 10).toString()
             binding.mySumRb.rating = (myScore.toFloat() + 10) / 2
-
             binding.yourSumTv.text = (yourScore * 100 / 15).toString()
             binding.yourSumRb.rating = (yourScore.toFloat() + 10) / 2
-
             binding.totalSumTv.text = (totalScore * 100 / 10).toString()
-            binding.totalSumRb.rating = (totalScore.toFloat() + 10) / 2
+            binding.bothSumRb.rating = (totalScore.toFloat() + 10) / 2
         })
 
         //advice
@@ -85,7 +81,6 @@ class ResultFragment : androidx.fragment.app.Fragment() {
             binding.bothWeakTv.text = it.weak
             binding.bothStrongTv.text = it.strong
         })
-
         return binding.root
     }
 
@@ -93,5 +88,4 @@ class ResultFragment : androidx.fragment.app.Fragment() {
         super.onDestroyView()
         _binding = null
     }
-
 }
