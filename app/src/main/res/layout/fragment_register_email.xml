@@ -19,18 +19,12 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="40dp"
-            android:contentDescription="@string/jLogo"
-            android:src="@drawable/ic_j_m" />
 
         <EditText
             android:id="@+id/emailEt"
             android:layout_width="237dp"
             android:layout_height="49dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="150dp"
             android:ems="10"
             android:hint="@string/email"
             android:inputType="textEmailAddress"

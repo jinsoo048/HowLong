@@ -1,94 +1,116 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clipToPadding="false"
+    android:orientation="vertical">
 
-    <data>
-
-    </data>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/card"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:clipToPadding="false"
-        android:paddingStart="@dimen/keyline_4"
-        android:paddingTop="@dimen/keyline_5"
-        android:paddingEnd="@dimen/keyline_4"
-        android:paddingBottom="@dimen/keyline_5">
+        android:layout_margin="8dp">
 
-        <ImageView
-            android:id="@+id/jLogoIv"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:contentDescription="@string/jLogo"
-            android:src="@mipmap/ic_love2_foreground"
-            app:layout_constraintBottom_toTopOf="@+id/myNameTi"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <!-- Title, secondary and supporting text -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/introduction"
+                    android:textAppearance="?attr/textAppearanceHeadline6" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="@string/detail"
+                    android:textAppearance="?attr/textAppearanceBody2"
+                    android:textColor="?android:attr/textColorSecondary" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="@string/supporting_text"
+                    android:textAppearance="?attr/textAppearanceBody2"
+                    android:textColor="?android:attr/textColorSecondary" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <LinearLayout
+        android:id="@+id/nameLl"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@+id/jLogoIv">
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/myNameTi"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_marginTop="@dimen/keyline_4"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/jLogoIv"
+            android:layout_margin="8dp"
+            android:layout_weight="1"
             app:startIconContentDescription="@string/male_start_icon"
             app:startIconDrawable="@drawable/male_big">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/myNameTe"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:hint="@string/maleName"
                 app:startIconDrawable="@drawable/male" />
-
 
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/yourNameTi"
-            style="?attr/textInputStyle"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_margin="8dp"
             android:layout_marginTop="@dimen/keyline_4"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/myNameTi"
+            android:layout_weight="1"
             app:startIconContentDescription="@string/female_start_icon"
             app:startIconDrawable="@drawable/female_big">
-
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/yourNameTe"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
+                android:layout_height="match_parent"
                 android:hint="@string/femaleName"
                 app:startIconDrawable="@drawable/female" />
 
         </com.google.android.material.textfield.TextInputLayout>
+    </LinearLayout>
 
-        <Button
-            android:id="@+id/howlongBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="25dp"
-            android:layout_marginBottom="25dp"
-            android:text="@string/go"
-            app:layout_constraintBottom_toTopOf="@+id/sumFl"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/yourNameTi" />
+    <Button
+        android:id="@+id/howlongBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp"
+        android:text="@string/go" />
 
-        <FrameLayout
-            android:id="@+id/sumFl"
-            android:layout_width="match_parent"
-            android:layout_height="370dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+    <FrameLayout
+        android:id="@+id/sumFl"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="8dp" />
+</LinearLayout>
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
-</layout>

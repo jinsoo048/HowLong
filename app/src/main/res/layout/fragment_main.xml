@@ -14,17 +14,11 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="40dp"
-            android:contentDescription="@string/jLogo"
-            android:src="@mipmap/ic_love2_foreground" />
-
         <LinearLayout
             android:id="@+id/mainLl"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
             android:orientation="horizontal"
             app:layout_constraintBottom_toTopOf="@+id/allBt">
 

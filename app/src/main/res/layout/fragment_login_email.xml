@@ -7,18 +7,11 @@
     android:orientation="vertical"
     tools:context=".LoginEmailFragment">
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:contentDescription="@string/jLogo"
-        android:src="@mipmap/ic_love2_foreground" />
-
     <EditText
         android:id="@+id/editTextEmailAddress"
         android:layout_width="237dp"
         android:layout_height="49dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="150dp"
         android:layout_marginBottom="12dp"
         android:ems="10"
         android:hint="@string/email"

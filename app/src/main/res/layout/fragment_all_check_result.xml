@@ -469,7 +469,7 @@
                             <ImageView
                                 android:layout_width="40dp"
                                 android:layout_height="wrap_content"
-                                android:src="@drawable/love0" />
+                                android:src="@drawable/love_24" />
 
                             <TextView
                                 android:id="@+id/relationShipTv"
@@ -535,6 +535,5 @@
             app:tint="@color/black" />
 
     </LinearLayout>
-
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
